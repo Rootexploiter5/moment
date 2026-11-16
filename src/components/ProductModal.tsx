@@ -163,9 +163,10 @@ export function ProductModal({
 
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* Left Column: Sticky Product Image & Specifications */}
-          <div className="lg:col-span-6 bg-[#FAF8F4] p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-[#E6DCC5] flex flex-col justify-between">
+          <div className="lg:col-span-6 bg-[#FAF8F4] p-5 sm:p-7 border-b lg:border-b-0 lg:border-r border-[#E6DCC5] flex flex-col justify-between">
             <div>
-              <div className="aspect-[4/3] w-full bg-white border border-[#E6DCC5] rounded-md overflow-hidden mb-6">
+              {/* Main Showcase Trophy Photo */}
+              <div className="aspect-[4/3] w-full bg-white border border-[#E6DCC5] rounded-md overflow-hidden mb-3.5 shadow-sm">
                 <ResilientImage
                   src={activeDisplayImage || product.image}
                   alt={product.imageAlt}
@@ -174,15 +175,59 @@ export function ProductModal({
                 />
               </div>
 
-              <p className="text-xs font-medium uppercase tracking-wider text-[#8E6718] mb-2">
+              {/* 4 Trophy Template Design Thumbnails Strip */}
+              <div className="mb-5">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E6718]">
+                    Trophy Design Templates ({ENGRAVING_TEMPLATES.length})
+                  </span>
+                  <span className="text-[11px] text-[#645D54]">Click thumbnail to inspect</span>
+                </div>
+                <div className="grid grid-cols-4 gap-2">
+                  {ENGRAVING_TEMPLATES.map((tmpl) => {
+                    const isSelected = selectedTemplate.id === tmpl.id;
+                    return (
+                      <button
+                        key={tmpl.id}
+                        type="button"
+                        onClick={() => {
+                          setSelectedTemplate(tmpl);
+                          setActiveDisplayImage(tmpl.image);
+                        }}
+                        className={`group relative aspect-square rounded-md overflow-hidden border-2 transition-all cursor-pointer bg-white ${
+                          isSelected
+                            ? 'border-[#8E6718] shadow-sm ring-2 ring-[#8E6718]/40'
+                            : 'border-[#E6DCC5] opacity-75 hover:opacity-100 hover:border-[#C9A24D]'
+                        }`}
+                      >
+                        <img
+                          src={tmpl.image}
+                          alt={tmpl.name}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        {isSelected && (
+                          <span className="absolute top-1 right-1 bg-[#8E6718] text-white p-0.5 rounded-full shadow-xs">
+                            <Check className="w-2.5 h-2.5" />
+                          </span>
+                        )}
+                        <span className="absolute inset-x-0 bottom-0 bg-[#1C1917]/85 text-[#DFC684] text-[9px] font-medium py-0.5 text-center truncate px-1 backdrop-blur-xs">
+                          {tmpl.badge}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <p className="text-xs font-medium uppercase tracking-wider text-[#8E6718] mb-1.5">
                 Craftsmanship &amp; Specifications
               </p>
-              <p className="text-sm text-[#645D54] leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-[#645D54] leading-relaxed mb-4">
                 {product.craftNotes}
               </p>
             </div>
 
-            <dl className="grid grid-cols-2 gap-4 pt-5 border-t border-[#E6DCC5] text-xs">
+            <dl className="grid grid-cols-2 gap-3 pt-4 border-t border-[#E6DCC5] text-xs">
               <div>
                 <dt className="text-[#645D54]">Dimensions</dt>
                 <dd className="font-semibold text-[#1C1917] mt-0.5 tabular-nums">
@@ -254,11 +299,10 @@ export function ProductModal({
                         key={size.label}
                         type="button"
                         onClick={() => setSelectedSize(size)}
-                        className={`px-3 py-2.5 text-left border rounded-md transition-colors cursor-pointer ${
-                          active
-                            ? 'border-[#8E6718] bg-[#FAF8F4] text-[#1C1917]'
-                            : 'border-[#E6DCC5] bg-white text-[#645D54] hover:border-[#C9A24D]'
-                        }`}
+                        className={`px-3 py-2.5 text-left border rounded-md transition-colors cursor-pointer ${active
+                          ? 'border-[#8E6718] bg-[#FAF8F4] text-[#1C1917]'
+                          : 'border-[#E6DCC5] bg-white text-[#645D54] hover:border-[#C9A24D]'
+                          }`}
                       >
                         <span className="block text-xs font-semibold text-[#1C1917] truncate">
                           {size.label}
@@ -287,11 +331,10 @@ export function ProductModal({
                         key={finish}
                         type="button"
                         onClick={() => setSelectedFinish(finish)}
-                        className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium border rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-                          active
-                            ? 'border-[#1C1917] bg-[#1C1917] text-white'
-                            : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
-                        }`}
+                        className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium border rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${active
+                          ? 'border-[#1C1917] bg-[#1C1917] text-white'
+                          : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
+                          }`}
                       >
                         {active && <Check className="w-3.5 h-3.5 text-[#DFC684]" />}
                         <span>{finish}</span>
@@ -301,14 +344,14 @@ export function ProductModal({
                 </div>
               </div>
 
-              {/* Curated Engraving Template Designs as Photos */}
-              <div className="p-4 sm:p-5 bg-[#FAF8F4] border border-[#E6DCC5] rounded-lg mb-6">
-                <div className="flex items-center justify-between gap-4 mb-3">
+              {/* Curated Engraving Template Designs */}
+              <div className="p-3.5 sm:p-4 bg-[#FAF8F4] border border-[#E6DCC5] rounded-lg mb-5">
+                <div className="flex items-center justify-between gap-4 mb-2.5">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-[#1C1917]">
-                      Choose Inscription Design Template
+                      Select Inscription Design Template
                     </p>
-                    <p className="text-xs text-[#645D54]">
+                    <p className="text-[11px] text-[#645D54]">
                       Complimentary diamond-drag plate inscription with every piece
                     </p>
                   </div>
@@ -324,9 +367,9 @@ export function ProductModal({
                 </div>
 
                 {includeEngraving ? (
-                  <div className="space-y-4 pt-3 border-t border-[#E6DCC5]">
-                    {/* Visual Photo Cards Grid of 4 Distinct Templates */}
-                    <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-3 pt-2.5 border-t border-[#E6DCC5]">
+                    {/* Sleek Compact Template Options */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {ENGRAVING_TEMPLATES.map((tmpl) => {
                         const isSelected = selectedTemplate.id === tmpl.id;
                         return (
@@ -337,71 +380,73 @@ export function ProductModal({
                               setSelectedTemplate(tmpl);
                               setActiveDisplayImage(tmpl.image);
                             }}
-                            className={`group text-left p-2.5 rounded-lg border transition-all cursor-pointer relative overflow-hidden flex flex-col justify-between ${
+                            className={`group text-left p-2 rounded-lg border transition-all cursor-pointer relative flex items-center gap-2.5 ${
                               isSelected
-                                ? 'border-[#8E6718] bg-white ring-1 ring-[#8E6718] shadow-sm'
+                                ? 'border-[#8E6718] bg-white ring-2 ring-[#8E6718]/40 shadow-xs'
                                 : 'border-[#E6DCC5] bg-white/70 hover:border-[#C9A24D] hover:bg-white'
                             }`}
                           >
-                            {/* Template Photo Showcase */}
-                            <div className="aspect-[4/3] w-full rounded overflow-hidden mb-2 bg-[#EFEAE0] relative border border-[#E6DCC5]">
+                            {/* Photo Thumbnail */}
+                            <div className="w-11 h-11 rounded overflow-hidden bg-[#EFEAE0] shrink-0 border border-[#E6DCC5] relative">
                               <img
                                 src={tmpl.image}
                                 alt={tmpl.name}
-                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                               />
                               {isSelected && (
-                                <span className="absolute top-1.5 right-1.5 bg-[#8E6718] text-white p-1 rounded-full shadow-xs">
-                                  <Check className="w-3 h-3" />
+                                <span className="absolute inset-0 bg-[#8E6718]/30 flex items-center justify-center">
+                                  <Check className="w-4 h-4 text-white drop-shadow" />
                                 </span>
                               )}
-                              <span className="absolute bottom-1.5 left-1.5 bg-[#1C1917]/85 text-[#DFC684] text-[10px] font-medium px-2 py-0.5 rounded tracking-wide backdrop-blur-xs">
-                                {tmpl.badge}
-                              </span>
                             </div>
 
-                            <p className="text-xs font-semibold text-[#1C1917] line-clamp-1 leading-snug">
-                              {tmpl.name}
-                            </p>
-                            <p className="text-[11px] text-[#645D54] line-clamp-1 mt-0.5">
-                              {tmpl.description}
-                            </p>
-
-                            {/* Mini Gold Inscription Plaque Preview */}
-                            <div className="mt-2.5 gold-foil-surface px-2.5 py-2 rounded-[2px] border border-[#A87E2A]/70 text-center shadow-inner">
-                              <p
-                                className={`text-[10px] text-[#2B1F06] truncate ${
-                                  tmpl.fontStyle === 'Atelier Script'
-                                    ? 'font-display italic font-semibold'
-                                    : 'font-display uppercase tracking-wider font-semibold'
-                                }`}
-                              >
-                                {isSelected && customRecipient.trim()
-                                  ? customRecipient.trim()
-                                  : tmpl.defaultRecipient}
+                            <div className="min-w-0 flex-1">
+                              <p className="text-xs font-semibold text-[#1C1917] truncate leading-tight">
+                                {tmpl.name}
                               </p>
-                              <p className="text-[9px] text-[#3D2C0A] truncate mt-0.5">
-                                {tmpl.defaultCitation}
-                              </p>
-                              <p className="text-[8px] tracking-[0.16em] uppercase text-[#4B360C] mt-0.5 tabular-nums">
-                                {tmpl.defaultDate}
-                              </p>
+                              <span className="inline-block mt-0.5 text-[10px] text-[#8E6718] font-medium tracking-wide">
+                                {tmpl.badge}
+                              </span>
                             </div>
                           </button>
                         );
                       })}
                     </div>
 
+                    {/* Single Bespoke Live Gold Plaque Proof */}
+                    <div className="gold-foil-surface px-4 py-2.5 rounded-[3px] border border-[#A87E2A]/70 text-center shadow-inner relative">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#7A5915]/50 absolute top-2 left-2" aria-hidden="true" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#7A5915]/50 absolute top-2 right-2" aria-hidden="true" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#7A5915]/50 absolute bottom-2 left-2" aria-hidden="true" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#7A5915]/50 absolute bottom-2 right-2" aria-hidden="true" />
+
+                      <p
+                        className={`text-xs text-[#2B1F06] truncate ${
+                          selectedTemplate.fontStyle === 'Atelier Script'
+                            ? 'font-display italic font-semibold text-sm'
+                            : 'font-display uppercase tracking-widest font-semibold'
+                        }`}
+                      >
+                        {customRecipient.trim() || selectedTemplate.defaultRecipient}
+                      </p>
+                      <p className="text-[11px] text-[#3D2C0A] truncate mt-0.5">
+                        {selectedTemplate.defaultCitation}
+                      </p>
+                      <p className="text-[9px] tracking-[0.18em] uppercase text-[#4B360C] mt-0.5 tabular-nums">
+                        {selectedTemplate.defaultDate}
+                      </p>
+                    </div>
+
                     {/* Single Custom Inscription Line Input */}
-                    <div className="pt-2">
-                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-1">
                         <label
                           htmlFor="modal-custom-recipient"
                           className="text-xs font-medium text-[#1C1917]"
                         >
                           Custom Inscription Name or Title (Optional)
                         </label>
-                        <span className="text-[11px] text-[#8E6718]">Complimentary</span>
+                        <span className="text-[10px] text-[#8E6718] font-medium">Free Customization</span>
                       </div>
                       <input
                         id="modal-custom-recipient"
@@ -409,7 +454,7 @@ export function ProductModal({
                         maxLength={50}
                         value={customRecipient}
                         onChange={(e) => setCustomRecipient(e.target.value)}
-                        placeholder={`e.g. Inscribe with ${selectedTemplate.name}...`}
+                        placeholder={`e.g. Customize ${selectedTemplate.name}...`}
                         className="w-full px-3 py-2 text-xs bg-white border border-[#E6DCC5] rounded-md text-[#1C1917] placeholder:text-[#8A8177] focus:outline-none focus:border-[#8E6718] transition-colors"
                       />
                     </div>
