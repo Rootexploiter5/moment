@@ -212,6 +212,7 @@ export default function App() {
             orderNumber: orders[0]?.orderNumber || 'TM-1042',
           })
         }
+        orders={orders}
       />
 
       <main className="flex-1">
