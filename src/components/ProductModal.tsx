@@ -298,11 +298,10 @@ export function ProductModal({
                         key={size.label}
                         type="button"
                         onClick={() => setSelectedSize(size)}
-                        className={`px-3 py-2.5 text-left border rounded-md transition-all cursor-pointer ${
-                          active
-                            ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white shadow-xs'
-                            : 'border-[#E6DCC5] bg-white text-[#645D54] hover:border-[#8E6718]'
-                        }`}
+                        className={`px-3 py-2.5 text-left border rounded-md transition-all cursor-pointer ${active
+                          ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white shadow-xs'
+                          : 'border-[#E6DCC5] bg-white text-[#645D54] hover:border-[#8E6718]'
+                          }`}
                       >
                         <span className={`block text-xs font-semibold truncate ${active ? 'text-white' : 'text-[#1C1917]'}`}>
                           {size.label}
@@ -331,11 +330,10 @@ export function ProductModal({
                         key={finish}
                         type="button"
                         onClick={() => setSelectedFinish(finish)}
-                        className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium border rounded-md transition-all whitespace-nowrap shrink-0 cursor-pointer ${
-                          active
-                            ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white shadow-xs'
-                            : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
-                        }`}
+                        className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium border rounded-md transition-all whitespace-nowrap shrink-0 cursor-pointer ${active
+                          ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white shadow-xs'
+                          : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
+                          }`}
                       >
                         {active && <Check className="w-3.5 h-3.5 text-[#DFC684]" />}
                         <span>{finish}</span>
@@ -381,11 +379,10 @@ export function ProductModal({
                               setSelectedTemplate(tmpl);
                               setActiveDisplayImage(tmpl.image);
                             }}
-                            className={`group text-left p-2 rounded-lg border transition-all cursor-pointer relative flex items-center gap-2.5 ${
-                              isSelected
-                                ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white ring-1 ring-[#DFC684]/40 shadow-xs'
-                                : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
-                            }`}
+                            className={`group text-left p-2 rounded-lg border transition-all cursor-pointer relative flex items-center gap-2.5 ${isSelected
+                              ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white ring-1 ring-[#DFC684]/40 shadow-xs'
+                              : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
+                              }`}
                           >
                             {/* Photo Thumbnail */}
                             <div className="w-11 h-11 rounded overflow-hidden bg-[#EFEAE0] shrink-0 border border-[#E6DCC5] relative">
