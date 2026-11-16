@@ -11,7 +11,16 @@ export function Header({ cartCount, onOpenCart, onOpenTrackOrder }: HeaderProps)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-[#E6DCC5]">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E6DCC5]">
+      {/* Top Noir Atelier Banner */}
+      <div className="bg-[#0E0D0C] text-[#D8C7A3] text-[11px] tracking-[0.16em] uppercase py-2 px-4 border-b border-[#24201A] text-center font-medium">
+        <span className="hidden sm:inline">Handcrafted in London &amp; Paris</span>
+        <span className="hidden sm:inline mx-2 text-[#8E6718]">·</span>
+        <span>24k Gold &amp; Carrara Marble</span>
+        <span className="mx-2 text-[#8E6718]">·</span>
+        <span className="text-[#F3E5BA]">Complimentary Inscription on All Pieces</span>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
         {/* Zone 1: Single text element wordmark */}
         <a
@@ -46,7 +55,7 @@ export function Header({ cartCount, onOpenCart, onOpenTrackOrder }: HeaderProps)
           <button
             type="button"
             onClick={onOpenCart}
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#1C1917] hover:bg-[#8E6718] transition-colors duration-200 rounded-md whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8E6718]"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] transition-all duration-200 rounded-md whitespace-nowrap shrink-0 cursor-pointer shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8E6718]"
           >
             <ShoppingBag className="w-4 h-4 text-[#DFC684]" strokeWidth={1.75} />
             <span>Shopping Bag</span>

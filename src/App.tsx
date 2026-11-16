@@ -13,6 +13,7 @@ import {
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CatalogSection } from './components/CatalogSection';
+import { AtelierProvenance } from './components/AtelierProvenance';
 import { Footer } from './components/Footer';
 import { ProductModal } from './components/ProductModal';
 import { CartDrawer } from './components/CartDrawer';
@@ -227,6 +228,8 @@ export default function App() {
           onSelectProduct={(product) => setActiveProduct(product)}
           onQuickAdd={handleQuickAdd}
         />
+
+        <AtelierProvenance />
       </main>
 
       <Footer

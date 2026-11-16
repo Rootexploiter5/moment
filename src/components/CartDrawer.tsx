@@ -99,19 +99,19 @@ export function CartDrawer({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Drawer Header */}
-        <div className="px-6 py-5 border-b border-[#E6DCC5] flex items-center justify-between gap-4 bg-[#FAF8F4]">
+        <div className="px-6 py-5 border-b border-[#24201A] flex items-center justify-between gap-4 bg-[#0E0D0C] text-white">
           <div className="flex items-center gap-3">
             {step === 'checkout' && (
               <button
                 type="button"
                 onClick={() => setStep('bag')}
                 aria-label="Back to shopping bag"
-                className="p-1.5 text-[#1C1917] hover:text-[#8E6718] cursor-pointer"
+                className="p-1.5 text-white/80 hover:text-[#DFC684] cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
             )}
-            <h2 className="font-display text-2xl font-semibold text-[#1C1917]">
+            <h2 className="font-display text-2xl font-semibold text-white tracking-tight">
               {step === 'bag' && 'Shopping Bag'}
               {step === 'checkout' && 'Delivery & Checkout'}
               {step === 'confirmed' && 'Order Confirmed'}
@@ -122,7 +122,7 @@ export function CartDrawer({
             type="button"
             onClick={handleCloseDrawer}
             aria-label="Close shopping bag"
-            className="w-9 h-9 flex items-center justify-center rounded-full border border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718] cursor-pointer"
+            className="w-9 h-9 flex items-center justify-center rounded-full border border-[#2B251D] bg-[#161412] text-white hover:border-[#DFC684] transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -478,17 +478,18 @@ export function CartDrawer({
               <button
                 type="button"
                 onClick={() => setStep('checkout')}
-                className="w-full py-3 px-6 text-sm font-semibold text-white bg-[#8E6718] hover:bg-[#755412] rounded-md transition-colors cursor-pointer"
+                className="w-full py-3 px-6 text-sm font-semibold text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] shadow-sm rounded-md transition-all cursor-pointer flex items-center justify-center gap-2"
               >
-                Proceed to Checkout
+                <span>Proceed to Checkout</span>
               </button>
             ) : (
               <button
                 type="submit"
                 form="checkout-form"
-                className="w-full py-3 px-6 text-sm font-semibold text-white bg-[#8E6718] hover:bg-[#755412] rounded-md transition-colors cursor-pointer"
+                className="w-full py-3 px-6 text-sm font-semibold text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] shadow-sm rounded-md transition-all cursor-pointer flex items-center justify-center gap-2"
               >
-                Confirm Order · ${total.toLocaleString()}
+                <span>Confirm Commission</span>
+                <span className="text-[#DFC684] tabular-nums font-bold">· ${total.toLocaleString()}</span>
               </button>
             )}
           </div>

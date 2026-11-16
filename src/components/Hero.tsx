@@ -35,38 +35,38 @@ export function Hero({ onExploreCollection }: HeroProps) {
                 <button
                   type="button"
                   onClick={onExploreCollection}
-                  className="inline-flex items-center gap-2.5 px-6 py-3 text-sm font-semibold text-white bg-[#8E6718] hover:bg-[#755412] transition-colors duration-200 rounded-md whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8E6718]"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 text-sm font-semibold text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] shadow-md hover:shadow-lg transition-all duration-200 rounded-md whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8E6718]"
                 >
                   <span>Explore Collection</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-[#DFC684]" />
                 </button>
               </div>
             </div>
 
-            {/* Quiet Provenance & Guarantee Row */}
-            <div className="mt-10 pt-8 border-t border-[#E6DCC5] grid grid-cols-3 gap-6">
+            {/* Noir Luxury Provenance & Guarantee Banner */}
+            <div className="mt-8 p-4 sm:p-5 rounded-lg bg-[#0E0D0C] border border-[#28231C] text-white grid grid-cols-3 gap-4 shadow-md">
               <div>
-                <p className="font-display text-2xl font-semibold text-[#1C1917] tabular-nums">
+                <p className="font-display text-xl sm:text-2xl font-semibold text-[#DFC684] tabular-nums">
                   24k Gold
                 </p>
-                <p className="text-xs text-[#645D54] mt-1">
-                  Triple-plated heirloom finish
+                <p className="text-[11px] text-[#A69C8E] mt-0.5">
+                  Triple-plated finish
                 </p>
               </div>
               <div>
-                <p className="font-display text-2xl font-semibold text-[#1C1917] tabular-nums">
-                  Complimentary
+                <p className="font-display text-xl sm:text-2xl font-semibold text-[#DFC684] tabular-nums">
+                  Included
                 </p>
-                <p className="text-xs text-[#645D54] mt-1">
-                  Diamond-drag plate engraving
+                <p className="text-[11px] text-[#A69C8E] mt-0.5">
+                  Diamond-drag plate
                 </p>
               </div>
               <div>
-                <p className="font-display text-2xl font-semibold text-[#1C1917] tabular-nums">
-                  Free Delivery
+                <p className="font-display text-xl sm:text-2xl font-semibold text-[#DFC684] tabular-nums">
+                  Free Dispatch
                 </p>
-                <p className="text-xs text-[#645D54] mt-1">
-                  On orders above $350
+                <p className="text-[11px] text-[#A69C8E] mt-0.5">
+                  Orders over $350
                 </p>
               </div>
             </div>
@@ -74,20 +74,23 @@ export function Hero({ onExploreCollection }: HeroProps) {
 
           {/* 4:3 Editorial Showcase Image Column */}
           <div className="lg:col-span-6">
-            <div className="h-full bg-white p-3 sm:p-4 border border-[#E6DCC5] rounded-lg shadow-[0_14px_40px_-20px_rgba(28,25,23,0.16)]">
-              <div className="relative h-full min-h-[300px] aspect-[4/3] lg:aspect-auto overflow-hidden rounded-sm bg-[#F4EFE6]">
+            <div className="h-full bg-white p-3 sm:p-4 border border-[#E6DCC5] rounded-lg shadow-[0_14px_40px_-20px_rgba(28,25,23,0.16)] ring-1 ring-[#0E0D0C]/10">
+              <div className="relative h-full min-h-[300px] aspect-[4/3] lg:aspect-auto overflow-hidden rounded-sm bg-[#0E0D0C]">
                 <ResilientImage
                   src={HERO_IMAGE}
                   alt="Handcrafted 24k gold-plated championship trophy cup on honed white marble plinth"
                   title="Grand Victory Winged Cup"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent p-5 sm:p-6">
-                  <p className="text-xs text-[#F3E5BA] tracking-wide">
-                    Flagship Commission · Carrara Marble &amp; 24k Gold Plate
-                  </p>
-                  <p className="font-display text-xl sm:text-2xl font-semibold text-white mt-0.5">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent p-5 sm:p-6 border-t border-white/10">
+                  <span className="inline-block px-2.5 py-0.5 mb-1.5 text-[10px] uppercase tracking-widest text-[#DFC684] bg-black/75 rounded backdrop-blur-xs border border-[#8E6718]/40">
+                    Flagship Atelier Commission
+                  </span>
+                  <p className="font-display text-xl sm:text-2xl font-semibold text-white">
                     Grand Victory Winged Cup
+                  </p>
+                  <p className="text-xs text-[#E5DDD0]/80 mt-0.5">
+                    Carrara Marble Plinth · 24k Bright Gold Plate
                   </p>
                 </div>
               </div>

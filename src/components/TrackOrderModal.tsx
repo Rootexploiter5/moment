@@ -62,12 +62,12 @@ export function TrackOrderModal({
         className="w-full max-w-xl bg-white border border-[#E6DCC5] rounded-lg shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="px-6 py-5 bg-[#FAF8F4] border-b border-[#E6DCC5] flex items-center justify-between">
+        <div className="px-6 py-5 bg-[#0E0D0C] border-b border-[#24201A] flex items-center justify-between text-white">
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-[#8E6718]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#DFC684]">
               Atelier Dispatch Lookup
             </p>
-            <h2 id="track-order-title" className="font-display text-2xl font-semibold text-[#1C1917]">
+            <h2 id="track-order-title" className="font-display text-2xl font-semibold text-white tracking-tight">
               Track Your Commission
             </h2>
           </div>
@@ -75,7 +75,7 @@ export function TrackOrderModal({
             type="button"
             onClick={onClose}
             aria-label="Close order tracker"
-            className="w-9 h-9 flex items-center justify-center rounded-full border border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718] cursor-pointer"
+            className="w-9 h-9 flex items-center justify-center rounded-full border border-[#2B251D] bg-[#161412] text-white hover:border-[#DFC684] transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -96,7 +96,7 @@ export function TrackOrderModal({
             </div>
             <button
               type="submit"
-              className="px-5 py-2.5 text-sm font-semibold text-white bg-[#1C1917] hover:bg-[#8E6718] rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="px-5 py-2.5 text-sm font-semibold text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] shadow-sm rounded-md transition-all whitespace-nowrap shrink-0 cursor-pointer"
             >
               Look Up
             </button>

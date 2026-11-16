@@ -194,11 +194,10 @@ export function ProductModal({
                           setSelectedTemplate(tmpl);
                           setActiveDisplayImage(tmpl.image);
                         }}
-                        className={`group relative aspect-square rounded-md overflow-hidden border-2 transition-all cursor-pointer bg-white ${
-                          isSelected
-                            ? 'border-[#8E6718] shadow-sm ring-2 ring-[#8E6718]/40'
-                            : 'border-[#E6DCC5] opacity-75 hover:opacity-100 hover:border-[#C9A24D]'
-                        }`}
+                        className={`group relative aspect-square rounded-md overflow-hidden border-2 transition-all cursor-pointer bg-white ${isSelected
+                          ? 'border-[#8E6718] shadow-sm ring-2 ring-[#8E6718]/40'
+                          : 'border-[#E6DCC5] opacity-75 hover:opacity-100 hover:border-[#C9A24D]'
+                          }`}
                       >
                         <img
                           src={tmpl.image}
@@ -258,12 +257,12 @@ export function ProductModal({
           {/* Right Column: Contiguous Purchase & Engraving Module */}
           <form onSubmit={handleSubmit} className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 text-xs text-[#645D54] mb-2">
-                <span className="uppercase tracking-wider text-[#8E6718] font-medium">
+              <div className="flex items-center gap-2 text-xs mb-2.5">
+                <span className="inline-block px-2.5 py-0.5 uppercase tracking-wider text-[#DFC684] bg-[#0E0D0C] border border-[#2B251D] rounded font-semibold text-[10px]">
                   {product.category}
                 </span>
-                <span aria-hidden="true">·</span>
-                <span>{product.availability}</span>
+                <span className="text-[#645D54]" aria-hidden="true">·</span>
+                <span className="text-xs text-[#8E6718] font-medium">{product.availability}</span>
               </div>
 
               <h2
@@ -299,15 +298,16 @@ export function ProductModal({
                         key={size.label}
                         type="button"
                         onClick={() => setSelectedSize(size)}
-                        className={`px-3 py-2.5 text-left border rounded-md transition-colors cursor-pointer ${active
-                          ? 'border-[#8E6718] bg-[#FAF8F4] text-[#1C1917]'
-                          : 'border-[#E6DCC5] bg-white text-[#645D54] hover:border-[#C9A24D]'
-                          }`}
+                        className={`px-3 py-2.5 text-left border rounded-md transition-all cursor-pointer ${
+                          active
+                            ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white shadow-xs'
+                            : 'border-[#E6DCC5] bg-white text-[#645D54] hover:border-[#8E6718]'
+                        }`}
                       >
-                        <span className="block text-xs font-semibold text-[#1C1917] truncate">
+                        <span className={`block text-xs font-semibold truncate ${active ? 'text-white' : 'text-[#1C1917]'}`}>
                           {size.label}
                         </span>
-                        <span className="block text-[11px] text-[#645D54] tabular-nums mt-0.5">
+                        <span className={`block text-[11px] tabular-nums mt-0.5 ${active ? 'text-[#DFC684]' : 'text-[#645D54]'}`}>
                           {size.priceDelta === 0
                             ? 'Standard'
                             : `+$${size.priceDelta}`}
@@ -331,10 +331,11 @@ export function ProductModal({
                         key={finish}
                         type="button"
                         onClick={() => setSelectedFinish(finish)}
-                        className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium border rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${active
-                          ? 'border-[#1C1917] bg-[#1C1917] text-white'
-                          : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
-                          }`}
+                        className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium border rounded-md transition-all whitespace-nowrap shrink-0 cursor-pointer ${
+                          active
+                            ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white shadow-xs'
+                            : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
+                        }`}
                       >
                         {active && <Check className="w-3.5 h-3.5 text-[#DFC684]" />}
                         <span>{finish}</span>
@@ -382,8 +383,8 @@ export function ProductModal({
                             }}
                             className={`group text-left p-2 rounded-lg border transition-all cursor-pointer relative flex items-center gap-2.5 ${
                               isSelected
-                                ? 'border-[#8E6718] bg-white ring-2 ring-[#8E6718]/40 shadow-xs'
-                                : 'border-[#E6DCC5] bg-white/70 hover:border-[#C9A24D] hover:bg-white'
+                                ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white ring-1 ring-[#DFC684]/40 shadow-xs'
+                                : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
                             }`}
                           >
                             {/* Photo Thumbnail */}
@@ -394,17 +395,17 @@ export function ProductModal({
                                 className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                               />
                               {isSelected && (
-                                <span className="absolute inset-0 bg-[#8E6718]/30 flex items-center justify-center">
-                                  <Check className="w-4 h-4 text-white drop-shadow" />
+                                <span className="absolute inset-0 bg-[#0E0D0C]/40 flex items-center justify-center">
+                                  <Check className="w-4 h-4 text-[#DFC684] drop-shadow" />
                                 </span>
                               )}
                             </div>
 
                             <div className="min-w-0 flex-1">
-                              <p className="text-xs font-semibold text-[#1C1917] truncate leading-tight">
+                              <p className={`text-xs font-semibold truncate leading-tight ${isSelected ? 'text-white' : 'text-[#1C1917]'}`}>
                                 {tmpl.name}
                               </p>
-                              <span className="inline-block mt-0.5 text-[10px] text-[#8E6718] font-medium tracking-wide">
+                              <span className={`inline-block mt-0.5 text-[10px] font-medium tracking-wide ${isSelected ? 'text-[#DFC684]' : 'text-[#8E6718]'}`}>
                                 {tmpl.badge}
                               </span>
                             </div>
@@ -421,11 +422,10 @@ export function ProductModal({
                       <span className="w-1.5 h-1.5 rounded-full bg-[#7A5915]/50 absolute bottom-2 right-2" aria-hidden="true" />
 
                       <p
-                        className={`text-xs text-[#2B1F06] truncate ${
-                          selectedTemplate.fontStyle === 'Atelier Script'
-                            ? 'font-display italic font-semibold text-sm'
-                            : 'font-display uppercase tracking-widest font-semibold'
-                        }`}
+                        className={`text-xs text-[#2B1F06] truncate ${selectedTemplate.fontStyle === 'Atelier Script'
+                          ? 'font-display italic font-semibold text-sm'
+                          : 'font-display uppercase tracking-widest font-semibold'
+                          }`}
                       >
                         {customRecipient.trim() || selectedTemplate.defaultRecipient}
                       </p>
@@ -493,9 +493,10 @@ export function ProductModal({
 
               <button
                 type="submit"
-                className="flex-1 h-11 px-6 text-sm font-semibold text-white bg-[#8E6718] hover:bg-[#755412] rounded-md transition-colors cursor-pointer whitespace-nowrap"
+                className="flex-1 h-11 px-6 text-sm font-semibold text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] shadow-md hover:shadow-lg rounded-md transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-2"
               >
-                Add to Shopping Bag · ${lineTotal.toLocaleString()}
+                <span>Add to Shopping Bag</span>
+                <span className="text-[#DFC684] tabular-nums font-bold">· ${lineTotal.toLocaleString()}</span>
               </button>
             </div>
           </form>

@@ -71,7 +71,7 @@ export function CatalogSection({
                   onClick={() => onSelectCategory(category)}
                   className={`px-3.5 py-2 text-xs font-medium rounded-md transition-colors duration-150 whitespace-nowrap shrink-0 cursor-pointer ${
                     active
-                      ? 'bg-[#1C1917] text-white shadow-xs'
+                      ? 'bg-[#0E0D0C] text-white shadow-sm border border-[#2B261F]'
                       : 'text-[#645D54] hover:text-[#1C1917] hover:bg-white/70'
                   }`}
                 >
@@ -156,6 +156,9 @@ export function CatalogSection({
                     title={product.name}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                   />
+                  <span className="absolute top-3 left-3 bg-[#0E0D0C]/85 text-[#DFC684] text-[10px] font-medium px-2 py-0.5 rounded tracking-wider uppercase border border-[#8E6718]/30 backdrop-blur-xs">
+                    {product.category}
+                  </span>
                   <span className="sr-only">Customize {product.name}</span>
                 </button>
 
@@ -211,10 +214,10 @@ export function CatalogSection({
                       <button
                         type="button"
                         onClick={() => onSelectProduct(product)}
-                        className="inline-flex items-center gap-1 px-3.5 py-2 text-xs font-semibold text-white bg-[#1C1917] hover:bg-[#8E6718] rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] shadow-xs rounded-md transition-all whitespace-nowrap shrink-0 cursor-pointer"
                       >
                         <span>Customize</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#DFC684]" />
                       </button>
                     </div>
                   </div>

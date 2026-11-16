@@ -11,6 +11,10 @@
   --color-gold-hairline: #E6DCC5;
   --color-ink: #1C1917;
   --color-ink-muted: #645D54;
+  --color-noir: #0E0D0C;
+  --color-noir-deep: #080707;
+  --color-noir-surface: #171513;
+  --color-noir-border: #28241D;
 }
 
 @layer base {
