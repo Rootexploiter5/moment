@@ -45,6 +45,13 @@ export function Header({
             Collection
           </a>
 
+          <a
+            href="#about"
+            className="hover:text-[#1A1A1A] underline-offset-8 hover:underline decoration-[#D4AF37] transition-colors whitespace-nowrap shrink-0"
+          >
+            About Us
+          </a>
+
           <button
             type="button"
             onClick={onOpenTrackOrder}
@@ -90,6 +97,14 @@ export function Header({
             className="py-2.5 px-3 text-sm font-medium text-[#1A1A1A] hover:bg-[#FAF8F4] rounded-md"
           >
             Collection
+          </a>
+
+          <a
+            href="#about"
+            onClick={() => setMobileMenuOpen(false)}
+            className="py-2.5 px-3 text-sm font-medium text-[#1A1A1A] hover:bg-[#FAF8F4] rounded-md"
+          >
+            About Us
           </a>
 
           <button

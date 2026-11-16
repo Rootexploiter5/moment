@@ -47,6 +47,11 @@ export function Footer({ onOpenTrackOrder, onOpenCart }: FooterProps) {
               </a>
             </div>
             <div>
+              <a href="#about" className="text-[#A69C8E] hover:text-[#D4AF37] transition-colors">
+                About Us (Kothamangalam Atelier)
+              </a>
+            </div>
+            <div>
               <button
                 type="button"
                 onClick={onOpenTrackOrder}

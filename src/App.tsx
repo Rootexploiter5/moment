@@ -18,7 +18,6 @@ import { Footer } from './components/Footer';
 import { ProductModal } from './components/ProductModal';
 import { CartDrawer } from './components/CartDrawer';
 import { TrackOrderModal } from './components/TrackOrderModal';
-import { DesignLabModal } from './components/DesignLabModal';
 
 const CART_STORAGE_KEY = 'today_mementos_cart_v1';
 const ORDERS_STORAGE_KEY = 'today_mementos_orders_v1';
@@ -38,7 +37,6 @@ export default function App() {
 
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isDesignLabOpen, setIsDesignLabOpen] = useState(false);
 
   const [trackOrderModal, setTrackOrderModal] = useState<{
     open: boolean;
@@ -214,14 +212,10 @@ export default function App() {
             orderNumber: orders[0]?.orderNumber || 'TM-1042',
           })
         }
-        onOpenDesignLab={() => setIsDesignLabOpen(true)}
       />
 
       <main className="flex-1">
-        <Hero
-          onExploreCollection={() => scrollToSection('collection')}
-          onOpenDesignLab={() => setIsDesignLabOpen(true)}
-        />
+        <Hero onExploreCollection={() => scrollToSection('collection')} />
 
         <CatalogSection
           products={filteredProducts}
@@ -246,7 +240,6 @@ export default function App() {
           })
         }
         onOpenCart={() => setIsCartOpen(true)}
-        onOpenDesignLab={() => setIsDesignLabOpen(true)}
       />
 
       <ProductModal
@@ -273,11 +266,6 @@ export default function App() {
         initialOrderNumber={trackOrderModal.orderNumber}
         orders={orders}
         onClose={() => setTrackOrderModal((prev) => ({ ...prev, open: false }))}
-      />
-
-      <DesignLabModal
-        isOpen={isDesignLabOpen}
-        onClose={() => setIsDesignLabOpen(false)}
       />
     </div>
   );
