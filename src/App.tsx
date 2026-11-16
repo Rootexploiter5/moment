@@ -13,7 +13,6 @@ import {
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CatalogSection } from './components/CatalogSection';
-import { EngravingAtelier } from './components/EngravingAtelier';
 import { Footer } from './components/Footer';
 import { ProductModal } from './components/ProductModal';
 import { CartDrawer } from './components/CartDrawer';
@@ -215,10 +214,7 @@ export default function App() {
       />
 
       <main className="flex-1">
-        <Hero
-          onExploreCollection={() => scrollToSection('collection')}
-          onOpenEngraving={() => scrollToSection('engraving')}
-        />
+        <Hero onExploreCollection={() => scrollToSection('collection')} />
 
         <CatalogSection
           products={filteredProducts}
@@ -230,12 +226,6 @@ export default function App() {
           onSortChange={setSortBy}
           onSelectProduct={(product) => setActiveProduct(product)}
           onQuickAdd={handleQuickAdd}
-        />
-
-        <EngravingAtelier
-          draftEngraving={draftEngraving}
-          onChangeDraft={setDraftEngraving}
-          onApplyToCollection={() => scrollToSection('collection')}
         />
       </main>
 

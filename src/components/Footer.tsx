@@ -28,14 +28,13 @@ export function Footer({ onOpenTrackOrder, onOpenCart }: FooterProps) {
               </a>
             </div>
             <div>
-              <a href="#engraving" className="text-[#645D54] hover:text-[#1C1917] transition-colors">
-                Bespoke Engraving Studio
-              </a>
-            </div>
-            <div>
-              <a href="#craftsmanship" className="text-[#645D54] hover:text-[#1C1917] transition-colors">
-                Materials &amp; Provenance
-              </a>
+              <button
+                type="button"
+                onClick={onOpenTrackOrder}
+                className="text-[#645D54] hover:text-[#1C1917] transition-colors cursor-pointer"
+              >
+                Track Commission Status
+              </button>
             </div>
           </div>
 

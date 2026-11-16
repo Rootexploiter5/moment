@@ -4,10 +4,9 @@ import { ResilientImage } from './ResilientImage';
 
 interface HeroProps {
   onExploreCollection: () => void;
-  onOpenEngraving: () => void;
 }
 
-export function Hero({ onExploreCollection, onOpenEngraving }: HeroProps) {
+export function Hero({ onExploreCollection }: HeroProps) {
   return (
     <section
       id="top"
@@ -40,14 +39,6 @@ export function Hero({ onExploreCollection, onOpenEngraving }: HeroProps) {
                 >
                   <span>Explore Collection</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={onOpenEngraving}
-                  className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-[#1C1917] bg-white border border-[#D8C8A6] hover:border-[#8E6718] transition-colors duration-200 rounded-md whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8E6718]"
-                >
-                  <span>Preview Engraving</span>
                 </button>
               </div>
             </div>

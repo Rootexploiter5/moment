@@ -38,21 +38,21 @@ export function EngravingAtelier({
   };
 
   return (
-    <section id="engraving" className="bg-[#FAF8F4] py-14 lg:py-20 border-b border-[#E6DCC5]">
+    <section id="engraving" className="bg-[#FAF8F4] py-8 lg:py-10 border-b border-[#E6DCC5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Live Brushed Gold Brass Plaque Preview */}
           <div className="lg:col-span-6">
-            <div className="bg-white p-5 sm:p-8 border border-[#E6DCC5] rounded-lg shadow-[0_14px_40px_-24px_rgba(28,25,23,0.18)]">
-              <div className="p-4 sm:p-6 bg-[#EFEAE0] border border-[#DDD3BE] rounded-sm">
-                <div className="gold-foil-surface p-6 sm:p-10 rounded-[2px] border border-[#A87E2A] shadow-inner text-center min-h-[230px] flex flex-col items-center justify-center relative">
+            <div className="bg-white p-4 sm:p-6 border border-[#E6DCC5] rounded-lg shadow-[0_10px_30px_-20px_rgba(28,25,23,0.15)]">
+              <div className="p-3 sm:p-4 bg-[#EFEAE0] border border-[#DDD3BE] rounded-sm">
+                <div className="gold-foil-surface p-4 sm:p-8 rounded-[2px] border border-[#A87E2A] shadow-inner text-center min-h-[190px] flex flex-col items-center justify-center relative">
                   {/* Classic Corner Brass Rivets */}
                   <span className="w-2 h-2 rounded-full bg-[#7A5915]/50 absolute top-3 left-3" aria-hidden="true" />
                   <span className="w-2 h-2 rounded-full bg-[#7A5915]/50 absolute top-3 right-3" aria-hidden="true" />
                   <span className="w-2 h-2 rounded-full bg-[#7A5915]/50 absolute bottom-3 left-3" aria-hidden="true" />
                   <span className="w-2 h-2 rounded-full bg-[#7A5915]/50 absolute bottom-3 right-3" aria-hidden="true" />
 
-                  <div className="w-12 h-px bg-[#47330A]/40 mb-4" aria-hidden="true" />
+                  <div className="w-12 h-px bg-[#47330A]/40 mb-3" aria-hidden="true" />
 
                   <p
                     className={`text-lg sm:text-2xl text-[#2B1F06] tracking-wide max-w-md break-words ${
@@ -65,7 +65,7 @@ export function EngravingAtelier({
                   </p>
 
                   <p
-                    className={`mt-2.5 text-sm sm:text-base text-[#3D2C0A] max-w-sm break-words ${
+                    className={`mt-2 text-sm sm:text-base text-[#3D2C0A] max-w-sm break-words ${
                       draftEngraving.fontStyle === 'Atelier Script'
                         ? 'font-display italic text-lg'
                         : 'font-sans font-medium'
@@ -74,15 +74,15 @@ export function EngravingAtelier({
                     {draftEngraving.citation || 'Award Citation or Occasion'}
                   </p>
 
-                  <p className="mt-4 text-xs tracking-[0.2em] uppercase text-[#4B360C] font-medium tabular-nums">
+                  <p className="mt-3 text-xs tracking-[0.2em] uppercase text-[#4B360C] font-medium tabular-nums">
                     {draftEngraving.dateLine || 'MMXXVI'}
                   </p>
 
-                  <div className="w-12 h-px bg-[#47330A]/40 mt-4" aria-hidden="true" />
+                  <div className="w-12 h-px bg-[#47330A]/40 mt-3" aria-hidden="true" />
                 </div>
               </div>
 
-              <div className="mt-4 flex items-center justify-between text-xs text-[#645D54]">
+              <div className="mt-3 flex items-center justify-between text-xs text-[#645D54]">
                 <span>Satin-Brushed Brass Plate · Dark Oxidized Fill</span>
                 <span>Complimentary with every order</span>
               </div>
@@ -91,21 +91,21 @@ export function EngravingAtelier({
 
           {/* Engraving Controls */}
           <div className="lg:col-span-6">
-            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#8E6718] mb-2">
+            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#8E6718] mb-1.5">
               Bespoke Inscription Studio
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold text-[#1C1917] text-balance mb-4">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#1C1917] text-balance mb-2.5">
               Compose Your Dedication Before You Select a Piece
             </h2>
-            <p className="text-sm sm:text-base text-[#645D54] leading-relaxed mb-6">
+            <p className="text-sm text-[#645D54] leading-relaxed mb-4">
               Our master engravers diamond-drag every brass plate and crystal bevel in-house.
               Test your inscription lines below—your text carries forward automatically when
               customizing any trophy or plaque.
             </p>
 
             {/* Occasion Preset Buttons */}
-            <div className="mb-5">
-              <span className="block text-xs font-medium text-[#645D54] mb-2">
+            <div className="mb-4">
+              <span className="block text-xs font-medium text-[#645D54] mb-1.5">
                 Sample Occasion Templates
               </span>
               <div className="flex flex-wrap gap-2">

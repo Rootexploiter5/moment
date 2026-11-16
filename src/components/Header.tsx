@@ -21,7 +21,7 @@ export function Header({ cartCount, onOpenCart, onOpenTrackOrder }: HeaderProps)
           Maison Aurelia
         </a>
 
-        {/* Zone 2: 4 concise single-line navigation links */}
+        {/* Zone 2: Navigation links */}
         <nav
           aria-label="Primary navigation"
           className="hidden md:flex items-center gap-7 text-sm font-medium text-[#645D54]"
@@ -31,18 +31,6 @@ export function Header({ cartCount, onOpenCart, onOpenTrackOrder }: HeaderProps)
             className="hover:text-[#1C1917] underline-offset-8 hover:underline decoration-[#B68A2D] transition-colors whitespace-nowrap shrink-0"
           >
             Collection
-          </a>
-          <a
-            href="#engraving"
-            className="hover:text-[#1C1917] underline-offset-8 hover:underline decoration-[#B68A2D] transition-colors whitespace-nowrap shrink-0"
-          >
-            Engraving
-          </a>
-          <a
-            href="#craftsmanship"
-            className="hover:text-[#1C1917] underline-offset-8 hover:underline decoration-[#B68A2D] transition-colors whitespace-nowrap shrink-0"
-          >
-            Craftsmanship
           </a>
           <button
             type="button"
@@ -85,20 +73,6 @@ export function Header({ cartCount, onOpenCart, onOpenTrackOrder }: HeaderProps)
             className="py-2.5 px-2 text-sm font-medium text-[#1C1917] hover:bg-[#FAF8F4] rounded-md"
           >
             Collection
-          </a>
-          <a
-            href="#engraving"
-            onClick={() => setMobileMenuOpen(false)}
-            className="py-2.5 px-2 text-sm font-medium text-[#1C1917] hover:bg-[#FAF8F4] rounded-md"
-          >
-            Engraving
-          </a>
-          <a
-            href="#craftsmanship"
-            onClick={() => setMobileMenuOpen(false)}
-            className="py-2.5 px-2 text-sm font-medium text-[#1C1917] hover:bg-[#FAF8F4] rounded-md"
-          >
-            Craftsmanship
           </a>
           <button
             type="button"
