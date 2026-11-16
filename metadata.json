@@ -1,0 +1,6 @@
+{
+  "name": "Maison Aurelia — Classic Trophies & Momentos",
+  "description": "Classic gold and white luxury storefront for handcrafted championship trophies, crystal awards, brass plaques, and commemorative momentos with live bespoke engraving.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
