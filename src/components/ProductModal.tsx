@@ -90,8 +90,6 @@ export function ProductModal({
   const [activeDisplayImage, setActiveDisplayImage] = useState<string>(
     product?.image || ENGRAVING_TEMPLATES[0].image
   );
-  const [includeEngraving, setIncludeEngraving] = useState(true);
-  const [customRecipient, setCustomRecipient] = useState('');
 
   useEffect(() => {
     if (product) {
@@ -100,10 +98,8 @@ export function ProductModal({
       setQuantity(1);
       setSelectedTemplate(ENGRAVING_TEMPLATES[0]);
       setActiveDisplayImage(product.image);
-      setIncludeEngraving(true);
-      setCustomRecipient(initialEngraving?.recipient || '');
     }
-  }, [product, initialEngraving]);
+  }, [product]);
 
   useEffect(() => {
     if (!product) return;
@@ -127,13 +123,13 @@ export function ProductModal({
       finish: selectedFinish,
       quantity,
       engraving: {
-        enabled: includeEngraving,
+        enabled: true,
         templateId: selectedTemplate.id,
         templateName: selectedTemplate.name,
         templateImage: selectedTemplate.image,
-        recipient: customRecipient.trim() || selectedTemplate.defaultRecipient,
-        citation: selectedTemplate.defaultCitation,
-        dateLine: selectedTemplate.defaultDate,
+        recipient: '',
+        citation: '',
+        dateLine: '',
         fontStyle: selectedTemplate.fontStyle,
       },
     });
@@ -341,126 +337,6 @@ export function ProductModal({
                     );
                   })}
                 </div>
-              </div>
-
-              {/* Curated Engraving Template Designs */}
-              <div className="p-3.5 sm:p-4 bg-[#FAF8F4] border border-[#E6DCC5] rounded-lg mb-5">
-                <div className="flex items-center justify-between gap-4 mb-2.5">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#1C1917]">
-                      Select Inscription Design Template
-                    </p>
-                    <p className="text-[11px] text-[#645D54]">
-                      Complimentary diamond-drag plate inscription with every piece
-                    </p>
-                  </div>
-                  <label className="inline-flex items-center gap-2 text-xs font-medium text-[#1C1917] cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={includeEngraving}
-                      onChange={(e) => setIncludeEngraving(e.target.checked)}
-                      className="w-4 h-4 accent-[#8E6718] rounded cursor-pointer"
-                    />
-                    <span>Include Inscription</span>
-                  </label>
-                </div>
-
-                {includeEngraving ? (
-                  <div className="space-y-3 pt-2.5 border-t border-[#E6DCC5]">
-                    {/* Sleek Compact Template Options */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {ENGRAVING_TEMPLATES.map((tmpl) => {
-                        const isSelected = selectedTemplate.id === tmpl.id;
-                        return (
-                          <button
-                            key={tmpl.id}
-                            type="button"
-                            onClick={() => {
-                              setSelectedTemplate(tmpl);
-                              setActiveDisplayImage(tmpl.image);
-                            }}
-                            className={`group text-left p-2 rounded-lg border transition-all cursor-pointer relative flex items-center gap-2.5 ${isSelected
-                              ? 'border-[#0E0D0C] bg-[#0E0D0C] text-white ring-1 ring-[#DFC684]/40 shadow-xs'
-                              : 'border-[#E6DCC5] bg-white text-[#1C1917] hover:border-[#8E6718]'
-                              }`}
-                          >
-                            {/* Photo Thumbnail */}
-                            <div className="w-11 h-11 rounded overflow-hidden bg-[#EFEAE0] shrink-0 border border-[#E6DCC5] relative">
-                              <img
-                                src={tmpl.image}
-                                alt={tmpl.name}
-                                className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
-                              />
-                              {isSelected && (
-                                <span className="absolute inset-0 bg-[#0E0D0C]/40 flex items-center justify-center">
-                                  <Check className="w-4 h-4 text-[#DFC684] drop-shadow" />
-                                </span>
-                              )}
-                            </div>
-
-                            <div className="min-w-0 flex-1">
-                              <p className={`text-xs font-semibold truncate leading-tight ${isSelected ? 'text-white' : 'text-[#1C1917]'}`}>
-                                {tmpl.name}
-                              </p>
-                              <span className={`inline-block mt-0.5 text-[10px] font-medium tracking-wide ${isSelected ? 'text-[#DFC684]' : 'text-[#8E6718]'}`}>
-                                {tmpl.badge}
-                              </span>
-                            </div>
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Single Bespoke Live Gold Plaque Proof */}
-                    <div className="gold-foil-surface px-4 py-2.5 rounded-[3px] border border-[#A87E2A]/70 text-center shadow-inner relative">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#7A5915]/50 absolute top-2 left-2" aria-hidden="true" />
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#7A5915]/50 absolute top-2 right-2" aria-hidden="true" />
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#7A5915]/50 absolute bottom-2 left-2" aria-hidden="true" />
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#7A5915]/50 absolute bottom-2 right-2" aria-hidden="true" />
-
-                      <p
-                        className={`text-xs text-[#2B1F06] truncate ${selectedTemplate.fontStyle === 'Atelier Script'
-                          ? 'font-display italic font-semibold text-sm'
-                          : 'font-display uppercase tracking-widest font-semibold'
-                          }`}
-                      >
-                        {customRecipient.trim() || selectedTemplate.defaultRecipient}
-                      </p>
-                      <p className="text-[11px] text-[#3D2C0A] truncate mt-0.5">
-                        {selectedTemplate.defaultCitation}
-                      </p>
-                      <p className="text-[9px] tracking-[0.18em] uppercase text-[#4B360C] mt-0.5 tabular-nums">
-                        {selectedTemplate.defaultDate}
-                      </p>
-                    </div>
-
-                    {/* Single Custom Inscription Line Input */}
-                    <div>
-                      <div className="flex items-center justify-between gap-2 mb-1">
-                        <label
-                          htmlFor="modal-custom-recipient"
-                          className="text-xs font-medium text-[#1C1917]"
-                        >
-                          Custom Inscription Name or Title (Optional)
-                        </label>
-                        <span className="text-[10px] text-[#8E6718] font-medium">Free Customization</span>
-                      </div>
-                      <input
-                        id="modal-custom-recipient"
-                        type="text"
-                        maxLength={50}
-                        value={customRecipient}
-                        onChange={(e) => setCustomRecipient(e.target.value)}
-                        placeholder={`e.g. Customize ${selectedTemplate.name}...`}
-                        className="w-full px-3 py-2 text-xs bg-white border border-[#E6DCC5] rounded-md text-[#1C1917] placeholder:text-[#8A8177] focus:outline-none focus:border-[#8E6718] transition-colors"
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  <p className="text-xs text-[#645D54] pt-2 border-t border-[#E6DCC5]">
-                    Piece will be supplied with a blank satin-brushed gold presentation plate.
-                  </p>
-                )}
               </div>
             </div>
 

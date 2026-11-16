@@ -1,18 +1,16 @@
-import { ShoppingBag, Menu, X, Sparkles } from 'lucide-react';
+import { ShoppingBag, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 interface HeaderProps {
   cartCount: number;
   onOpenCart: () => void;
   onOpenTrackOrder: () => void;
-  onOpenDesignLab: () => void;
 }
 
 export function Header({
   cartCount,
   onOpenCart,
   onOpenTrackOrder,
-  onOpenDesignLab,
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -35,7 +33,7 @@ export function Header({
           </a>
         </div>
 
-        {/* Center Navigation Cluster with WebAR Try-On Link */}
+        {/* Center Navigation Cluster */}
         <nav
           aria-label="Primary navigation"
           className="hidden md:flex items-center gap-8 text-sm font-medium text-[#4A443C]"
@@ -46,20 +44,6 @@ export function Header({
           >
             Collection
           </a>
-
-          {/* WebAR Try-On Route Link */}
-          <button
-            type="button"
-            onClick={onOpenDesignLab}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-[#FAF6EE] text-[#1A1A1A] border border-[#D4AF37]/50 hover:border-[#D4AF37] hover:bg-[#F3E5AB]/40 transition-all cursor-pointer shadow-xs"
-            title="Interactive 3D & WebAR Try-On Simulator"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Design Lab</span>
-            <span className="px-1.5 py-0.2 bg-[#1A1A1A] text-[#D4AF37] text-[9px] font-bold rounded-sm tracking-wider uppercase">
-              WebAR
-            </span>
-          </button>
 
           <button
             type="button"
@@ -107,23 +91,6 @@ export function Header({
           >
             Collection
           </a>
-
-          <button
-            type="button"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenDesignLab();
-            }}
-            className="py-2.5 px-3 text-left text-sm font-medium text-[#1A1A1A] bg-[#FAF6EE] border border-[#D4AF37]/40 rounded-md flex items-center justify-between cursor-pointer"
-          >
-            <span className="inline-flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-              <span>Design Lab (WebAR Try-On)</span>
-            </span>
-            <span className="px-1.5 py-0.5 bg-[#1A1A1A] text-[#D4AF37] text-[10px] font-bold rounded">
-              AR
-            </span>
-          </button>
 
           <button
             type="button"

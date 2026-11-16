@@ -1,13 +1,12 @@
-import { ArrowRight, Shield, PenTool, Truck, Sparkles } from 'lucide-react';
+import { ArrowRight, Shield, PenTool, Truck } from 'lucide-react';
 import { HERO_IMAGE } from '../data/products';
 import { ResilientImage } from './ResilientImage';
 
 interface HeroProps {
   onExploreCollection: () => void;
-  onOpenDesignLab?: () => void;
 }
 
-export function Hero({ onExploreCollection, onOpenDesignLab }: HeroProps) {
+export function Hero({ onExploreCollection }: HeroProps) {
   return (
     <section id="top" className="bg-[#FAF8F4] border-b border-[#E6DCC5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
@@ -35,17 +34,6 @@ export function Hero({ onExploreCollection, onOpenDesignLab }: HeroProps) {
                   <span>Explore Collection</span>
                   <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
                 </button>
-
-                {onOpenDesignLab && (
-                  <button
-                    type="button"
-                    onClick={onOpenDesignLab}
-                    className="inline-flex items-center gap-2 px-5 py-3.5 text-sm font-semibold text-[#1A1A1A] bg-white hover:bg-[#FDFBF7] border border-[#D4AF37] shadow-xs hover:shadow transition-all duration-200 rounded-md whitespace-nowrap shrink-0 cursor-pointer"
-                  >
-                    <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-                    <span>Launch WebAR Try-On</span>
-                  </button>
-                )}
               </div>
             </div>
 

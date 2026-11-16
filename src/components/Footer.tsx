@@ -3,10 +3,9 @@ import { MapPin, Phone, Mail, Clock, Star } from 'lucide-react';
 interface FooterProps {
   onOpenTrackOrder: () => void;
   onOpenCart: () => void;
-  onOpenDesignLab?: () => void;
 }
 
-export function Footer({ onOpenTrackOrder, onOpenCart, onOpenDesignLab }: FooterProps) {
+export function Footer({ onOpenTrackOrder, onOpenCart }: FooterProps) {
   return (
     <footer className="bg-[#121212] text-white border-t border-[#262626]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -47,17 +46,6 @@ export function Footer({ onOpenTrackOrder, onOpenCart, onOpenDesignLab }: Footer
                 Trophies &amp; Awards Collection
               </a>
             </div>
-            {onOpenDesignLab && (
-              <div>
-                <button
-                  type="button"
-                  onClick={onOpenDesignLab}
-                  className="text-[#A69C8E] hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
-                >
-                  Design Lab (WebAR 3D Try-On)
-                </button>
-              </div>
-            )}
             <div>
               <button
                 type="button"
