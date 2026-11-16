@@ -1,96 +1,98 @@
-import { Award, ShieldCheck, Sparkles } from 'lucide-react';
+import { Award, ShieldCheck, Sparkles, MapPin } from 'lucide-react';
 
 export function AtelierProvenance() {
   return (
-    <section className="bg-[#0E0D0C] text-white py-14 lg:py-20 border-t border-[#26211A] relative overflow-hidden">
+    <section className="bg-[#1A1A1A] text-white py-14 lg:py-20 border-t border-[#2E2E2E] relative overflow-hidden">
       {/* Subtle gold radiant aura in background */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#8E6718]/10 blur-[120px] pointer-events-none rounded-full"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#D4AF37]/10 blur-[120px] pointer-events-none rounded-full"
         aria-hidden="true"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#DFC684] mb-2.5">
-            The Atelier Standard
-          </p>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight text-balance">
-            Uncompromising Nobility Cast in Gold and Stone
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-3 rounded-full bg-[#262626] border border-[#D4AF37]/40 text-[#D4AF37] text-xs font-semibold uppercase tracking-widest">
+            <MapPin className="w-3.5 h-3.5" />
+            <span>Kothamangalam, Kerala Atelier</span>
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight text-balance">
+            The Today Mementos Standard of Excellence
           </h2>
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#8E6718] to-transparent mx-auto mt-4 mb-4" />
-          <p className="text-sm sm:text-base text-[#A89F91] leading-relaxed">
-            Every Maison Aurelia piece is individually turned, electroplated in pure 24k gold, and
-            fitted to hand-selected stone plinths for institutions, championships, and lifelong honors.
+          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-4 mb-4" />
+          <p className="text-sm sm:text-base text-[#B3A99B] leading-relaxed">
+            Every Today Mementos award is individually precision-crafted in our Kothamangalam workshop, electroplated
+            with enduring metallic finishes, and mounted on solid teak wood, marble, or crystal bases for schools,
+            sports tournaments, corporate institutions, and civic achievements across Kerala.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {/* Pillar 1 */}
-          <div className="p-6 sm:p-8 rounded-lg bg-[#161412] border border-[#2B251D] flex flex-col justify-between hover:border-[#8E6718]/50 transition-colors">
+          <div className="p-6 sm:p-8 rounded-lg bg-[#222222] border border-[#2E2E2E] flex flex-col justify-between hover:border-[#D4AF37]/60 transition-colors">
             <div>
-              <div className="w-12 h-12 rounded-full bg-[#201D19] border border-[#3D3528] flex items-center justify-center mb-5 text-[#DFC684]">
+              <div className="w-12 h-12 rounded-full bg-[#1A1A1A] border border-[#3A3A3A] flex items-center justify-center mb-5 text-[#D4AF37]">
                 <Sparkles className="w-5 h-5" strokeWidth={1.5} />
               </div>
-              <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#8E6718] mb-1.5">
-                01. Metallurgy
+              <p className="text-xs font-semibold tracking-[0.16em] uppercase text-[#D4AF37] mb-1.5">
+                01. Premium Finishes
               </p>
-              <h3 className="font-display text-2xl font-semibold text-white mb-2.5">
-                24k Gold Electroplating
+              <h3 className="font-display text-2xl font-bold text-white mb-2.5">
+                24k Gold &amp; Satin Brass
               </h3>
-              <p className="text-sm text-[#9E9589] leading-relaxed">
-                Hand-spun from heavy-gauge solid brass, burnished by master polishers, and triple-plated
-                in 24k gold with a molecular clear-coat lacquer that prevents oxidation for generations.
+              <p className="text-sm text-[#A69C8E] leading-relaxed">
+                Formed from heavy-gauge alloys, polished to a mirror sheen, and treated with protective
+                anti-tarnish clear coats to withstand Kerala&apos;s climate and maintain a pristine shine for decades.
               </p>
             </div>
-            <div className="pt-6 mt-6 border-t border-[#262119] flex items-center justify-between text-xs text-[#DFC684]/80">
+            <div className="pt-6 mt-6 border-t border-[#2A2A2A] flex items-center justify-between text-xs text-[#F3E5AB]">
               <span>Pure 24k Bright &amp; Satin Gold</span>
-              <span className="font-medium text-[#8E6718]">★ Guaranteed</span>
+              <span className="font-semibold text-[#D4AF37]">★ Guaranteed</span>
             </div>
           </div>
 
           {/* Pillar 2 */}
-          <div className="p-6 sm:p-8 rounded-lg bg-[#161412] border border-[#2B251D] flex flex-col justify-between hover:border-[#8E6718]/50 transition-colors">
+          <div className="p-6 sm:p-8 rounded-lg bg-[#222222] border border-[#2E2E2E] flex flex-col justify-between hover:border-[#D4AF37]/60 transition-colors">
             <div>
-              <div className="w-12 h-12 rounded-full bg-[#201D19] border border-[#3D3528] flex items-center justify-center mb-5 text-[#DFC684]">
+              <div className="w-12 h-12 rounded-full bg-[#1A1A1A] border border-[#3A3A3A] flex items-center justify-center mb-5 text-[#D4AF37]">
                 <Award className="w-5 h-5" strokeWidth={1.5} />
               </div>
-              <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#8E6718] mb-1.5">
-                02. Mineral Foundation
+              <p className="text-xs font-semibold tracking-[0.16em] uppercase text-[#D4AF37] mb-1.5">
+                02. Mineral &amp; Wood Bases
               </p>
-              <h3 className="font-display text-2xl font-semibold text-white mb-2.5">
-                Carrara Marble &amp; Travertine
+              <h3 className="font-display text-2xl font-bold text-white mb-2.5">
+                Solid Teak, Marble &amp; Glass
               </h3>
-              <p className="text-sm text-[#9E9589] leading-relaxed">
-                Quarried in Tuscany and Rome, each pedestal is precision-honed, beveled, and weighted to
-                provide ceremonial gravitas. Fitted with archival velvet baize to protect presentation surfaces.
+              <p className="text-sm text-[#A69C8E] leading-relaxed">
+                From hand-polished Nilambur teak wood pedestals to precision-beveled optical crystal obelisks
+                and marble plinths, each base is weighted for a commanding physical presence.
               </p>
             </div>
-            <div className="pt-6 mt-6 border-t border-[#262119] flex items-center justify-between text-xs text-[#DFC684]/80">
-              <span>Authentic Natural Stone Plinths</span>
-              <span className="font-medium text-[#8E6718]">★ Weighted Base</span>
+            <div className="pt-6 mt-6 border-t border-[#2A2A2A] flex items-center justify-between text-xs text-[#F3E5AB]">
+              <span>Solid Wood &amp; Natural Stone Plinths</span>
+              <span className="font-semibold text-[#D4AF37]">★ Weighted Base</span>
             </div>
           </div>
 
           {/* Pillar 3 */}
-          <div className="p-6 sm:p-8 rounded-lg bg-[#161412] border border-[#2B251D] flex flex-col justify-between hover:border-[#8E6718]/50 transition-colors">
+          <div className="p-6 sm:p-8 rounded-lg bg-[#222222] border border-[#2E2E2E] flex flex-col justify-between hover:border-[#D4AF37]/60 transition-colors">
             <div>
-              <div className="w-12 h-12 rounded-full bg-[#201D19] border border-[#3D3528] flex items-center justify-center mb-5 text-[#DFC684]">
+              <div className="w-12 h-12 rounded-full bg-[#1A1A1A] border border-[#3A3A3A] flex items-center justify-center mb-5 text-[#D4AF37]">
                 <ShieldCheck className="w-5 h-5" strokeWidth={1.5} />
               </div>
-              <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#8E6718] mb-1.5">
-                03. Bespoke Inscription
+              <p className="text-xs font-semibold tracking-[0.16em] uppercase text-[#D4AF37] mb-1.5">
+                03. In-House Inscription
               </p>
-              <h3 className="font-display text-2xl font-semibold text-white mb-2.5">
-                White-Glove Presentation
+              <h3 className="font-display text-2xl font-bold text-white mb-2.5">
+                Complimentary Engraving
               </h3>
-              <p className="text-sm text-[#9E9589] leading-relaxed">
-                Diamond-drag engraved in-house with proof verification. Presented inside an ivory
-                presentation case accompanied by white cotton handling gloves and an engraved accuracy seal.
+              <p className="text-sm text-[#A69C8E] leading-relaxed">
+                Computerized laser etching, sub-surface 3D crystal engraving, and diamond-drag metal plates
+                are produced directly in our Kothamangalam studio with zero delay.
               </p>
             </div>
-            <div className="pt-6 mt-6 border-t border-[#262119] flex items-center justify-between text-xs text-[#DFC684]/80">
-              <span>Complimentary On Every Order</span>
-              <span className="font-medium text-[#8E6718]">★ Atelier Certified</span>
+            <div className="pt-6 mt-6 border-t border-[#2A2A2A] flex items-center justify-between text-xs text-[#F3E5AB]">
+              <span>Free with Every Memento</span>
+              <span className="font-semibold text-[#D4AF37]">★ Kothamangalam Verified</span>
             </div>
           </div>
         </div>

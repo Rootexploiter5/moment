@@ -65,7 +65,7 @@ export interface CustomerDetails {
   phone: string;
   address: string;
   postalCode: string;
-  paymentMethod: 'Card on Delivery' | 'Invoice / Bank Transfer';
+  paymentMethod: 'UPI / Bank Transfer' | 'Card on Delivery' | 'Invoice / Bank Transfer';
 }
 
 export interface OrderRecord {

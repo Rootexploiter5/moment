@@ -18,14 +18,15 @@ import { Footer } from './components/Footer';
 import { ProductModal } from './components/ProductModal';
 import { CartDrawer } from './components/CartDrawer';
 import { TrackOrderModal } from './components/TrackOrderModal';
+import { DesignLabModal } from './components/DesignLabModal';
 
-const CART_STORAGE_KEY = 'maison_aurelia_cart_v1';
-const ORDERS_STORAGE_KEY = 'maison_aurelia_orders_v1';
+const CART_STORAGE_KEY = 'today_mementos_cart_v1';
+const ORDERS_STORAGE_KEY = 'today_mementos_orders_v1';
 
 const DEFAULT_ENGRAVING: EngravingDetails = {
   enabled: true,
-  recipient: 'VICTORIA ROWING CLUB',
-  citation: 'Grand Challenge First Place',
+  recipient: 'ST. GEORGE TROPHY FEST',
+  citation: 'Champions of Kerala First Place',
   dateLine: 'NOVEMBER 2026',
   fontStyle: 'Classic Roman',
 };
@@ -35,17 +36,18 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('featured');
 
-  const [draftEngraving, setDraftEngraving] = useState<EngravingDetails>(DEFAULT_ENGRAVING);
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isDesignLabOpen, setIsDesignLabOpen] = useState(false);
+
   const [trackOrderModal, setTrackOrderModal] = useState<{
     open: boolean;
     orderNumber: string;
-  }>({ open: false, orderNumber: 'MA-1042' });
+  }>({ open: false, orderNumber: 'TM-1042' });
 
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
-      const saved = localStorage.getItem(CART_STORAGE_KEY);
+      const saved = localStorage.getItem(CART_STORAGE_KEY) || localStorage.getItem('maison_aurelia_cart_v1');
       return saved ? (JSON.parse(saved) as CartItem[]) : [];
     } catch {
       return [];
@@ -54,7 +56,7 @@ export default function App() {
 
   const [orders, setOrders] = useState<OrderRecord[]>(() => {
     try {
-      const saved = localStorage.getItem(ORDERS_STORAGE_KEY);
+      const saved = localStorage.getItem(ORDERS_STORAGE_KEY) || localStorage.getItem('maison_aurelia_orders_v1');
       if (saved) {
         const parsed = JSON.parse(saved) as OrderRecord[];
         return parsed.length > 0 ? parsed : SAMPLE_ORDERS;
@@ -69,7 +71,7 @@ export default function App() {
     try {
       localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
     } catch {
-      // Ignore storage quota errors
+      // Ignore quota exceptions
     }
   }, [cart]);
 
@@ -77,7 +79,7 @@ export default function App() {
     try {
       localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
     } catch {
-      // Ignore storage quota errors
+      // Ignore quota exceptions
     }
   }, [orders]);
 
@@ -142,10 +144,10 @@ export default function App() {
       finish: product.finishes[0],
       quantity: 1,
       engraving: {
-        enabled: false,
-        recipient: '',
-        citation: '',
-        dateLine: '',
+        enabled: true,
+        recipient: 'CHAMPIONSHIP HONOREE',
+        citation: 'First Place Victory',
+        dateLine: '2026',
         fontStyle: 'Classic Roman',
       },
     });
@@ -171,10 +173,10 @@ export default function App() {
     const subtotal = cart.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
     const shippingFee = subtotal >= 350 ? 0 : 25;
     const total = subtotal + shippingFee;
-    const orderNum = `MA-${1043 + orders.length}`;
+    const orderNum = `TM-${1043 + orders.length}`;
 
     const dispatchDate = new Date();
-    dispatchDate.setDate(dispatchDate.getDate() + 4);
+    dispatchDate.setDate(dispatchDate.getDate() + 3);
 
     const newOrder: OrderRecord = {
       orderNumber: orderNum,
@@ -209,13 +211,17 @@ export default function App() {
         onOpenTrackOrder={() =>
           setTrackOrderModal({
             open: true,
-            orderNumber: orders[0]?.orderNumber || 'MA-1042',
+            orderNumber: orders[0]?.orderNumber || 'TM-1042',
           })
         }
+        onOpenDesignLab={() => setIsDesignLabOpen(true)}
       />
 
       <main className="flex-1">
-        <Hero onExploreCollection={() => scrollToSection('collection')} />
+        <Hero
+          onExploreCollection={() => scrollToSection('collection')}
+          onOpenDesignLab={() => setIsDesignLabOpen(true)}
+        />
 
         <CatalogSection
           products={filteredProducts}
@@ -236,15 +242,16 @@ export default function App() {
         onOpenTrackOrder={() =>
           setTrackOrderModal({
             open: true,
-            orderNumber: orders[0]?.orderNumber || 'MA-1042',
+            orderNumber: orders[0]?.orderNumber || 'TM-1042',
           })
         }
         onOpenCart={() => setIsCartOpen(true)}
+        onOpenDesignLab={() => setIsDesignLabOpen(true)}
       />
 
       <ProductModal
         product={activeProduct}
-        initialEngraving={draftEngraving}
+        initialEngraving={DEFAULT_ENGRAVING}
         onClose={() => setActiveProduct(null)}
         onAddToCart={handleAddToCart}
       />
@@ -266,6 +273,11 @@ export default function App() {
         initialOrderNumber={trackOrderModal.orderNumber}
         orders={orders}
         onClose={() => setTrackOrderModal((prev) => ({ ...prev, open: false }))}
+      />
+
+      <DesignLabModal
+        isOpen={isDesignLabOpen}
+        onClose={() => setIsDesignLabOpen(false)}
       />
     </div>
   );

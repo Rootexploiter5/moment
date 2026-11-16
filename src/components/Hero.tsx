@@ -1,96 +1,130 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Shield, PenTool, Truck, Sparkles } from 'lucide-react';
 import { HERO_IMAGE } from '../data/products';
 import { ResilientImage } from './ResilientImage';
 
 interface HeroProps {
   onExploreCollection: () => void;
+  onOpenDesignLab?: () => void;
 }
 
-export function Hero({ onExploreCollection }: HeroProps) {
+export function Hero({ onExploreCollection, onOpenDesignLab }: HeroProps) {
   return (
-    <section
-      id="top"
-      className="bg-[#FAF8F4] border-b border-[#E6DCC5]"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <section id="top" className="bg-[#FAF8F4] border-b border-[#E6DCC5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
           {/* Editorial Copy Column */}
-          <div className="lg:col-span-6 flex flex-col justify-between py-2 lg:py-6">
+          <div className="lg:col-span-6 flex flex-col justify-between py-2 lg:py-4">
             <div>
-              <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#8E6718] mb-5">
-                Est. 1924 · Fine Trophies &amp; Ceremonial Momentos
-              </p>
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full bg-[#F3E5AB]/40 border border-[#D4AF37]/40 text-[#8E6718] text-xs font-semibold tracking-wider uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+                <span>Kothamangalam&apos;s 4.9★ Rated Trophy &amp; Memento Shop</span>
+              </div>
 
-              <h1 className="font-display text-[clamp(2.35rem,4vw,3.75rem)] leading-[1.08] font-semibold text-[#1C1917] text-balance mb-6">
-                Enduring Honors Cast in Gold and Stone
+              <h1 className="font-display text-[clamp(2.35rem,4vw,3.75rem)] leading-[1.08] font-bold text-[#1A1A1A] text-balance mb-6">
+                Enduring Honors Cast in Wood, Metal &amp; Glass
               </h1>
 
-              <p className="text-base sm:text-lg leading-relaxed text-[#645D54] max-w-xl mb-8">
-                Hand-spun 24k gold-plated loving cups, optical crystal obelisks, and solid
-                travertine plaques crafted for championships, civic milestones, and lifelong
-                recognition. Every piece includes complimentary precision engraving.
+              <p className="text-base sm:text-lg leading-relaxed text-[#5A5248] max-w-xl mb-8">
+                Kerala&apos;s trusted craftsmen for custom teak wood plaques, electroplated gold championship cups,
+                optical crystal awards, and bespoke corporate mementos. Each piece comes with complimentary
+                precision inscription and statewide insured delivery.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4 mb-8">
                 <button
                   type="button"
                   onClick={onExploreCollection}
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 text-sm font-semibold text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] shadow-md hover:shadow-lg transition-all duration-200 rounded-md whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8E6718]"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 text-sm font-semibold text-white bg-[#1A1A1A] hover:bg-[#2A2A2A] border border-[#2E2E2E] shadow-md hover:shadow-lg transition-all duration-200 rounded-md whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
                 >
                   <span>Explore Collection</span>
-                  <ArrowRight className="w-4 h-4 text-[#DFC684]" />
+                  <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
                 </button>
+
+                {onOpenDesignLab && (
+                  <button
+                    type="button"
+                    onClick={onOpenDesignLab}
+                    className="inline-flex items-center gap-2 px-5 py-3.5 text-sm font-semibold text-[#1A1A1A] bg-white hover:bg-[#FDFBF7] border border-[#D4AF37] shadow-xs hover:shadow transition-all duration-200 rounded-md whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    <Sparkles className="w-4 h-4 text-[#D4AF37]" />
+                    <span>Launch WebAR Try-On</span>
+                  </button>
+                )}
               </div>
             </div>
 
-            {/* Noir Luxury Provenance & Guarantee Banner */}
-            <div className="mt-8 p-4 sm:p-5 rounded-lg bg-[#0E0D0C] border border-[#28231C] text-white grid grid-cols-3 gap-4 shadow-md">
-              <div>
-                <p className="font-display text-xl sm:text-2xl font-semibold text-[#DFC684] tabular-nums">
-                  24k Gold
-                </p>
-                <p className="text-[11px] text-[#A69C8E] mt-0.5">
-                  Triple-plated finish
-                </p>
-              </div>
-              <div>
-                <p className="font-display text-xl sm:text-2xl font-semibold text-[#DFC684] tabular-nums">
-                  Included
-                </p>
-                <p className="text-[11px] text-[#A69C8E] mt-0.5">
-                  Diamond-drag plate
-                </p>
-              </div>
-              <div>
-                <p className="font-display text-xl sm:text-2xl font-semibold text-[#DFC684] tabular-nums">
-                  Free Dispatch
-                </p>
-                <p className="text-[11px] text-[#A69C8E] mt-0.5">
-                  Orders over $350
-                </p>
+            {/* Trust Banner (<TrustBox/>): 3-column CSS Grid in Charcoal (#1A1A1A) with Gold (#D4AF37) Accents */}
+            <div className="p-4 sm:p-5 rounded-lg bg-[#1A1A1A] border border-[#2E2E2E] text-white shadow-xl">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 divide-y md:divide-y-0 md:divide-x divide-[#2E2E2E]">
+                {/* Column 1: Shield */}
+                <div className="flex items-start gap-3.5 pt-2 md:pt-0">
+                  <div className="p-2.5 rounded-md bg-[#252525] border border-[#333333] shrink-0 text-[#D4AF37]">
+                    <Shield className="w-5 h-5" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#F3E5AB]">
+                      Custom Awards
+                    </p>
+                    <p className="text-xs text-[#B3A99B] mt-0.5 leading-snug">
+                      Wood, metal &amp; crystal architectural finishes
+                    </p>
+                  </div>
+                </div>
+
+                {/* Column 2: Pen Tool */}
+                <div className="flex items-start gap-3.5 pt-3 md:pt-0 md:pl-4">
+                  <div className="p-2.5 rounded-md bg-[#252525] border border-[#333333] shrink-0 text-[#D4AF37]">
+                    <PenTool className="w-5 h-5" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#F3E5AB]">
+                      Free Inscription
+                    </p>
+                    <p className="text-xs text-[#B3A99B] mt-0.5 leading-snug">
+                      Complimentary laser &amp; diamond-drag engraving
+                    </p>
+                  </div>
+                </div>
+
+                {/* Column 3: Truck */}
+                <div className="flex items-start gap-3.5 pt-3 md:pt-0 md:pl-4">
+                  <div className="p-2.5 rounded-md bg-[#252525] border border-[#333333] shrink-0 text-[#D4AF37]">
+                    <Truck className="w-5 h-5" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#F3E5AB]">
+                      Kerala Express
+                    </p>
+                    <p className="text-xs text-[#B3A99B] mt-0.5 leading-snug">
+                      Fast, insured dispatch from Kothamangalam
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* 4:3 Editorial Showcase Image Column */}
           <div className="lg:col-span-6">
-            <div className="h-full bg-white p-3 sm:p-4 border border-[#E6DCC5] rounded-lg shadow-[0_14px_40px_-20px_rgba(28,25,23,0.16)] ring-1 ring-[#0E0D0C]/10">
-              <div className="relative h-full min-h-[300px] aspect-[4/3] lg:aspect-auto overflow-hidden rounded-sm bg-[#0E0D0C]">
+            <div className="h-full bg-white p-3 sm:p-4 border border-[#E6DCC5] rounded-lg shadow-[0_14px_40px_-20px_rgba(28,25,23,0.16)] ring-1 ring-[#1A1A1A]/10">
+              <div className="relative h-full min-h-[300px] aspect-[4/3] lg:aspect-auto overflow-hidden rounded-sm bg-[#1A1A1A]">
                 <ResilientImage
                   src={HERO_IMAGE}
-                  alt="Handcrafted 24k gold-plated championship trophy cup on honed white marble plinth"
+                  alt="Handcrafted championship trophy cup from Today Mementos Kothamangalam"
                   title="Grand Victory Winged Cup"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent p-5 sm:p-6 border-t border-white/10">
-                  <span className="inline-block px-2.5 py-0.5 mb-1.5 text-[10px] uppercase tracking-widest text-[#DFC684] bg-black/75 rounded backdrop-blur-xs border border-[#8E6718]/40">
-                    Flagship Atelier Commission
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent p-5 sm:p-6 border-t border-white/10">
+                  <span className="inline-block px-2.5 py-0.5 mb-1.5 text-[10px] uppercase tracking-widest text-[#D4AF37] bg-black/80 rounded backdrop-blur-xs border border-[#D4AF37]/40 font-semibold">
+                    Today Mementos Kothamangalam
                   </span>
-                  <p className="font-display text-xl sm:text-2xl font-semibold text-white">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-white">
                     Grand Victory Winged Cup
                   </p>
-                  <p className="text-xs text-[#E5DDD0]/80 mt-0.5">
-                    Carrara Marble Plinth · 24k Bright Gold Plate
+                  <p className="text-xs text-[#E5DDD0]/85 mt-0.5">
+                    Carrara Marble Plinth · 24k Bright Gold Plate · Complimentary Plate Engraving
                   </p>
                 </div>
               </div>

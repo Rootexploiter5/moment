@@ -436,8 +436,9 @@ export function CartDrawer({
                     }
                     className="w-full px-3.5 py-2.5 text-sm bg-[#FAF8F4] border border-[#E6DCC5] rounded-md focus:outline-none focus:border-[#8E6718] focus:bg-white"
                   >
-                    <option value="Card on Delivery">Card on Delivery</option>
-                    <option value="Invoice / Bank Transfer">Invoice / Bank Transfer</option>
+                    <option value="UPI / Bank Transfer">UPI / GPay / PhonePe / NetBanking</option>
+                    <option value="Card on Delivery">Card / Cash on Delivery</option>
+                    <option value="Invoice / Bank Transfer">Institutional Invoice / Bank Transfer</option>
                   </select>
                 </div>
               </div>

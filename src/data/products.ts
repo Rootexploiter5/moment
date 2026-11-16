@@ -149,7 +149,7 @@ export const PRODUCTS: Product[] = [
 
 export const SAMPLE_ORDERS: OrderRecord[] = [
   {
-    orderNumber: 'MA-1042',
+    orderNumber: 'TM-1042',
     createdAt: '2026-11-12T14:22:00Z',
     status: 'In Engraving Studio',
     subtotal: 485,
@@ -157,12 +157,12 @@ export const SAMPLE_ORDERS: OrderRecord[] = [
     total: 485,
     estimatedDispatch: 'November 18, 2026',
     customer: {
-      fullName: 'Eleanor Vance',
-      email: 'e.vance@royalrowing.org',
-      phone: '+1 (415) 555-0194',
-      address: '420 Embarcadero Pier, Suite 3B',
-      postalCode: '94105',
-      paymentMethod: 'Invoice / Bank Transfer',
+      fullName: 'Dr. Mathews Varghese',
+      email: 'm.varghese@mact.ac.in',
+      phone: '+91 94470 12345',
+      address: 'Mar Athanasius College Campus, College Road',
+      postalCode: '686666',
+      paymentMethod: 'UPI / Bank Transfer',
     },
     items: [
       {
@@ -177,9 +177,9 @@ export const SAMPLE_ORDERS: OrderRecord[] = [
         quantity: 1,
         engraving: {
           enabled: true,
-          recipient: 'ST. CLAIRE REGATTA',
-          citation: 'Autumn Singles Champion',
-          dateLine: 'MMXXVI',
+          recipient: 'ALL-KERALA INTERCOLLEGIATE FEST',
+          citation: 'Overall Championship Winner',
+          dateLine: 'NOVEMBER 2026',
           fontStyle: 'Classic Roman',
         },
       },

@@ -1,78 +1,101 @@
+import { MapPin, Phone, Mail, Clock, Star } from 'lucide-react';
+
 interface FooterProps {
   onOpenTrackOrder: () => void;
   onOpenCart: () => void;
+  onOpenDesignLab?: () => void;
 }
 
-export function Footer({ onOpenTrackOrder, onOpenCart }: FooterProps) {
+export function Footer({ onOpenTrackOrder, onOpenCart, onOpenDesignLab }: FooterProps) {
   return (
-    <footer className="bg-[#0B0A09] text-white border-t border-[#24201A]">
+    <footer className="bg-[#121212] text-white border-t border-[#262626]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-[#221E18]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-[#262626]">
+          {/* Brand Info */}
           <div className="md:col-span-5">
-            <p className="font-display text-2xl font-semibold text-white tracking-tight mb-3">
-              Maison Aurelia
+            <div className="flex items-center gap-2 mb-2">
+              <span className="font-display text-2xl font-bold text-white tracking-tight">
+                Today Mementos
+              </span>
+              <span className="px-2 py-0.5 text-[10px] uppercase font-bold tracking-widest bg-[#D4AF37] text-[#1A1A1A] rounded">
+                4.9 ★ Rated
+              </span>
+            </div>
+            <p className="text-sm text-[#A69C8E] leading-relaxed max-w-sm mb-4">
+              Kothamangalam&apos;s leading manufacturer and designer of custom trophies, sports cups,
+              wood plaques, crystal obelisks, and ceremonial medals across Kerala.
             </p>
-            <p className="text-sm text-[#9E9589] leading-relaxed max-w-sm">
-              Handcrafted championship trophies, optical crystal awards, and bespoke brass
-              momentos finished in 24k gold plate and natural stone.
-            </p>
-            <div className="mt-4 flex items-center gap-2 text-xs text-[#DFC684]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#DFC684]" />
-              <span>London &amp; Paris Ateliers · Est. 1924</span>
+            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37]">
+              <div className="flex text-[#D4AF37]">
+                <Star className="w-3.5 h-3.5 fill-[#D4AF37]" />
+                <Star className="w-3.5 h-3.5 fill-[#D4AF37]" />
+                <Star className="w-3.5 h-3.5 fill-[#D4AF37]" />
+                <Star className="w-3.5 h-3.5 fill-[#D4AF37]" />
+                <Star className="w-3.5 h-3.5 fill-[#D4AF37]" />
+              </div>
+              <span className="text-[#E5DDD0] font-medium">4.9 / 5.0 (420+ Verified Client Reviews)</span>
             </div>
           </div>
 
+          {/* Quick Links */}
           <div className="md:col-span-3 space-y-2.5 text-sm">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#DFC684] mb-3">
-              Atelier Navigation
+            <p className="text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-3">
+              Explore Atelier
             </p>
             <div>
-              <a href="#collection" className="text-[#A89F91] hover:text-[#DFC684] transition-colors">
-                Trophy &amp; Memento Collection
+              <a href="#collection" className="text-[#A69C8E] hover:text-[#D4AF37] transition-colors">
+                Trophies &amp; Awards Collection
               </a>
             </div>
+            {onOpenDesignLab && (
+              <div>
+                <button
+                  type="button"
+                  onClick={onOpenDesignLab}
+                  className="text-[#A69C8E] hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
+                >
+                  Design Lab (WebAR 3D Try-On)
+                </button>
+              </div>
+            )}
             <div>
               <button
                 type="button"
                 onClick={onOpenTrackOrder}
-                className="text-[#A89F91] hover:text-[#DFC684] transition-colors cursor-pointer"
+                className="text-[#A69C8E] hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
               >
-                Track Commission Status
+                Track Order Status
               </button>
             </div>
           </div>
 
+          {/* Contact Details */}
           <div className="md:col-span-4 space-y-2.5 text-sm">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#DFC684] mb-3">
-              Client Services
+            <p className="text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-3">
+              Kothamangalam Atelier
             </p>
-            <div>
-              <button
-                type="button"
-                onClick={onOpenTrackOrder}
-                className="text-[#A89F91] hover:text-[#DFC684] transition-colors cursor-pointer"
-              >
-                Track Commission Status
-              </button>
+            <div className="flex items-start gap-2 text-xs text-[#A69C8E]">
+              <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+              <span>Today Mementos, AM Road, Kothamangalam, Ernakulam District, Kerala — 686691</span>
             </div>
-            <div>
-              <button
-                type="button"
-                onClick={onOpenCart}
-                className="text-[#A89F91] hover:text-[#DFC684] transition-colors cursor-pointer"
-              >
-                Review Shopping Bag
-              </button>
+            <div className="flex items-center gap-2 text-xs text-[#A69C8E]">
+              <Clock className="w-4 h-4 text-[#D4AF37] shrink-0" />
+              <span>Monday – Saturday: 9:00 AM – 7:30 PM IST</span>
             </div>
-            <p className="text-xs text-[#7A7266] pt-2">
-              412 Goldsmith Row · Monday – Saturday, 09:00 – 18:00
-            </p>
+            <div className="flex items-center gap-2 text-xs text-[#A69C8E]">
+              <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
+              <span>Direct Atelier Desk / WhatsApp: Available on Request</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs text-[#A69C8E]">
+              <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
+              <span>contact@todaymementos.com</span>
+            </div>
           </div>
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#7A7266]">
-          <p>© {new Date().getFullYear()} Maison Aurelia Ltd. All rights reserved.</p>
-          <p className="text-[#9E9589]">24k Gold Plate · Carrara Marble · Optical Crystal</p>
+          <p>© {new Date().getFullYear()} Today Mementos Kothamangalam. All rights reserved.</p>
+          <p className="text-[#A69C8E]">Wood · Brass · Crystal · Acrylic · Kerala Express Dispatch</p>
         </div>
       </div>
     </footer>

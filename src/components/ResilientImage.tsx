@@ -22,7 +22,7 @@ export function ResilientImage({ src, alt, title, className = '' }: ResilientIma
           <Award className="w-6 h-6 text-[#8E6718]" strokeWidth={1.5} />
         </div>
         <span className="font-display text-lg font-semibold text-[#1C1917]">
-          {title || 'Maison Aurelia'}
+          {title || 'Today Mementos'}
         </span>
       </div>
     );
