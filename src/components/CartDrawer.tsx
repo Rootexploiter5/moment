@@ -223,7 +223,7 @@ export function CartDrawer({
                 Your shopping bag is empty
               </h3>
               <p className="text-sm text-[#645D54] max-w-xs mb-6">
-                Explore our handcrafted 24k gold cups, optical crystal awards, and commemorative
+                Explore our handcrafted trophy cups, optical crystal awards, and commemorative
                 plaques to begin your commission.
               </p>
               <button

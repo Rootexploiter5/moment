@@ -8,18 +8,18 @@ export const PRODUCTS: Product[] = [
     sku: 'MA-CUP-01',
     name: 'Grand Victory Winged Cup',
     category: 'Championship Cups',
-    material: '24k Gold Plate & Carrara Marble',
+    material: 'Polished Brass & Solid Stone Plinth',
     basePrice: 485,
     image: '/src/assets/images/hero_trophy_atelier_1794820655775.jpg',
-    imageAlt: 'Grand Victory Winged Cup trophy in 24k gold plate on a honed white Carrara marble plinth',
+    imageAlt: 'Grand Victory Winged Cup trophy in polished metallic gold on a solid marble plinth',
     shortDescription:
       'Hand-spun chalice crowned with a cast victory figure, twin scrolled handles, and a solid honed white marble plinth.',
     craftNotes:
-      'Individually spun from heavy-gauge brass, triple-plated in 24k bright gold, and anchored to hand-selected Italian Carrara marble with a recessed brushed brass nameplate.',
+      'Individually spun from heavy-gauge brass, polished to a high-luster gold finish, and anchored to a solid stone pedestal with a recessed brushed brass nameplate.',
     weight: '4.2 kg',
     leadTime: '3–5 business days',
     availability: 'In Stock',
-    finishes: ['24k Bright Gold', 'Satin Brushed Gold'],
+    finishes: ['Polished Metallic Gold', 'Satin Brushed Gold'],
     sizes: [
       { label: '12" Presentation', dimensions: '12" H × 6.5" W', priceDelta: 0 },
       { label: '15" Championship', dimensions: '15" H × 8.0" W', priceDelta: 145 },
@@ -43,7 +43,7 @@ export const PRODUCTS: Product[] = [
     weight: '3.1 kg',
     leadTime: '2–4 business days',
     availability: 'In Stock',
-    finishes: ['24k Bright Gold', 'Antique Champagne Gold'],
+    finishes: ['Polished Metallic Gold', 'Antique Champagne Gold'],
     sizes: [
       { label: '10" Classic', dimensions: '10" H × 6.0" W', priceDelta: 0 },
       { label: '13" Premier', dimensions: '13" H × 7.5" W', priceDelta: 110 },
@@ -91,7 +91,7 @@ export const PRODUCTS: Product[] = [
     weight: '2.8 kg',
     leadTime: '3–4 business days',
     availability: 'In Stock',
-    finishes: ['Satin Brushed Brass', '24k Gold Satin Plate'],
+    finishes: ['Satin Brushed Brass', 'Polished Gold Plate'],
     sizes: [
       { label: '8" × 10" Portrait', dimensions: '8" × 10" × 1"', priceDelta: 0 },
       { label: '10" × 12" Dedication', dimensions: '10" × 12" × 1"', priceDelta: 65 },
@@ -115,7 +115,7 @@ export const PRODUCTS: Product[] = [
     weight: '2.9 kg',
     leadTime: '4–6 business days',
     availability: 'Made to Order',
-    finishes: ['Matte Atelier Gold', 'Burnished 24k Gold'],
+    finishes: ['Matte Antique Gold', 'Burnished Gold'],
     sizes: [
       { label: '10.5" Laureate', dimensions: '10.5" H × 7.0" W', priceDelta: 0 },
       { label: '13" International', dimensions: '13" H × 8.5" W', priceDelta: 115 },
@@ -127,7 +127,7 @@ export const PRODUCTS: Product[] = [
     sku: 'MA-MED-06',
     name: 'Centennial Gold Medallion',
     category: 'Heritage Medals',
-    material: '24k Gold Plated Bronze & Ivory Case',
+    material: 'Cast Jeweler Bronze & Presentation Case',
     basePrice: 135,
     image: '/src/assets/images/memento_medallion_case_1794820658069.jpg',
     imageAlt: 'Minted gold commemorative medallion inside an ivory leatherette presentation box with gold trim',
@@ -138,7 +138,7 @@ export const PRODUCTS: Product[] = [
     weight: '0.65 kg',
     leadTime: '2–3 business days',
     availability: 'In Stock',
-    finishes: ['Proof 24k Gold', 'Antique Satin Gold'],
+    finishes: ['Mirror Proof Gold', 'Antique Satin Gold'],
     sizes: [
       { label: '65mm Presentation', dimensions: '65mm Dia · 4.5" Case', priceDelta: 0 },
       { label: '80mm Grand Seal', dimensions: '80mm Dia · 5.5" Case', priceDelta: 45 },
@@ -172,7 +172,7 @@ export const SAMPLE_ORDERS: OrderRecord[] = [
         image: '/src/assets/images/hero_trophy_atelier_1794820655775.jpg',
         category: 'Championship Cups',
         selectedSize: { label: '12" Presentation', dimensions: '12" H × 6.5" W', priceDelta: 0 },
-        selectedFinish: '24k Bright Gold',
+        selectedFinish: 'Polished Metallic Gold',
         unitPrice: 485,
         quantity: 1,
         engraving: {

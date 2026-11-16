@@ -21,7 +21,7 @@ export const ENGRAVING_TEMPLATES: EngravingTemplateOption[] = [
     name: 'Classic Heritage Laurel Template',
     badge: 'Classic Roman',
     image: '/src/assets/images/sovereign_classic_heritage_1794823132512.jpg',
-    description: 'Deep-etched Roman capitals on 24k polished gold plate with laurel borders',
+    description: 'Deep-etched Roman capitals on polished metallic brass plate with laurel borders',
     fontStyle: 'Classic Roman',
     defaultRecipient: 'VICTORIA ROWING CLUB',
     defaultCitation: 'Grand Challenge First Place',
@@ -277,7 +277,7 @@ export function ProductModal({
                   ${unitPrice.toLocaleString()}
                 </span>
                 <span className="text-xs text-[#645D54]">
-                  Includes complimentary gold plate engraving
+                  Includes complimentary custom plate engraving
                 </span>
               </div>
 

@@ -13,7 +13,7 @@ const AR_MODELS = [
   {
     id: 'sovereign-cup',
     name: 'Sovereign Loving Cup',
-    material: '24k Gold Plate on White Marble',
+    material: 'Polished Metallic Gold on Solid Marble Base',
     image: '/src/assets/images/sovereign_classic_heritage_1794823132512.jpg',
     scale: '10" Classic Stature (Standard)',
     heightCm: '25.4 cm',

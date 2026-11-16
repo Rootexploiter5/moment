@@ -37,7 +37,7 @@ export function AtelierProvenance() {
                 01. Premium Finishes
               </p>
               <h3 className="font-display text-2xl font-bold text-white mb-2.5">
-                24k Gold &amp; Satin Brass
+                Polished Metallic Gold &amp; Brass
               </h3>
               <p className="text-sm text-[#A69C8E] leading-relaxed">
                 Formed from heavy-gauge alloys, polished to a mirror sheen, and treated with protective
@@ -45,7 +45,7 @@ export function AtelierProvenance() {
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-[#2A2A2A] flex items-center justify-between text-xs text-[#F3E5AB]">
-              <span>Pure 24k Bright &amp; Satin Gold</span>
+              <span>Mirror Gold &amp; Brushed Metallic Finish</span>
               <span className="font-semibold text-[#D4AF37]">★ Guaranteed</span>
             </div>
           </div>

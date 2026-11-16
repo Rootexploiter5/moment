@@ -15,18 +15,12 @@ export function Hero({ onExploreCollection, onOpenDesignLab }: HeroProps) {
           {/* Editorial Copy Column */}
           <div className="lg:col-span-6 flex flex-col justify-between py-2 lg:py-4">
             <div>
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full bg-[#F3E5AB]/40 border border-[#D4AF37]/40 text-[#8E6718] text-xs font-semibold tracking-wider uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
-                <span>Kothamangalam&apos;s 4.9★ Rated Trophy &amp; Memento Shop</span>
-              </div>
-
               <h1 className="font-display text-[clamp(2.35rem,4vw,3.75rem)] leading-[1.08] font-bold text-[#1A1A1A] text-balance mb-6">
                 Enduring Honors Cast in Wood, Metal &amp; Glass
               </h1>
 
               <p className="text-base sm:text-lg leading-relaxed text-[#5A5248] max-w-xl mb-8">
-                Kerala&apos;s trusted craftsmen for custom teak wood plaques, electroplated gold championship cups,
+                Kerala&apos;s trusted craftsmen for custom teak wood plaques, gleaming championship trophies,
                 optical crystal awards, and bespoke corporate mementos. Each piece comes with complimentary
                 precision inscription and statewide insured delivery.
               </p>
@@ -124,7 +118,7 @@ export function Hero({ onExploreCollection, onOpenDesignLab }: HeroProps) {
                     Grand Victory Winged Cup
                   </p>
                   <p className="text-xs text-[#E5DDD0]/85 mt-0.5">
-                    Carrara Marble Plinth · 24k Bright Gold Plate · Complimentary Plate Engraving
+                    Solid Stone Plinth · Polished Metallic Gold Finish · Complimentary Plate Engraving
                   </p>
                 </div>
               </div>
