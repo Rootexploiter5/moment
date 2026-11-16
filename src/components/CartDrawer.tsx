@@ -165,9 +165,10 @@ export function CartDrawer({
                       <p className="text-xs text-[#645D54]">
                         {item.selectedSize.label} · {item.selectedFinish}
                       </p>
-                      {item.engraving.enabled && item.engraving.recipient && (
+                      {item.engraving.enabled && (
                         <p className="text-xs text-[#8E6718] mt-1">
-                          Engraving: “{item.engraving.recipient}”
+                          Template: {item.engraving.templateName || 'Custom Inscription'}
+                          {item.engraving.recipient ? ` · “${item.engraving.recipient}”` : ''}
                         </p>
                       )}
                     </div>
@@ -284,21 +285,20 @@ export function CartDrawer({
                         {item.selectedSize.label} · {item.selectedFinish}
                       </p>
 
-                      {item.engraving.enabled &&
-                        (item.engraving.recipient || item.engraving.citation) && (
-                          <div className="mt-2 p-2 bg-[#FAF8F4] border border-[#E6DCC5] rounded text-[11px] text-[#645D54]">
-                            <span className="font-medium text-[#8E6718]">
-                              Engraving ({item.engraving.fontStyle}):
-                            </span>{' '}
-                            {[
-                              item.engraving.recipient,
-                              item.engraving.citation,
-                              item.engraving.dateLine,
-                            ]
-                              .filter(Boolean)
-                              .join(' · ')}
-                          </div>
-                        )}
+                      {item.engraving.enabled && (
+                        <div className="mt-2 p-2 bg-[#FAF8F4] border border-[#E6DCC5] rounded text-[11px] text-[#645D54]">
+                          <span className="font-medium text-[#8E6718]">
+                            {item.engraving.templateName || 'Bespoke Plaque'}:
+                          </span>{' '}
+                          {[
+                            item.engraving.recipient,
+                            item.engraving.citation,
+                            item.engraving.dateLine,
+                          ]
+                            .filter(Boolean)
+                            .join(' · ')}
+                        </div>
+                      )}
 
                       <div className="mt-3 flex items-center justify-between gap-3">
                         <div className="inline-flex items-center border border-[#E6DCC5] rounded bg-[#FAF8F4]">

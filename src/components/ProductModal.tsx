@@ -3,6 +3,65 @@ import { X, Check, Minus, Plus } from 'lucide-react';
 import { EngravingDetails, EngravingFont, Product, ProductSize } from '../types/shop';
 import { ResilientImage } from './ResilientImage';
 
+export interface EngravingTemplateOption {
+  id: string;
+  name: string;
+  badge: string;
+  image: string;
+  description: string;
+  fontStyle: EngravingFont;
+  defaultRecipient: string;
+  defaultCitation: string;
+  defaultDate: string;
+}
+
+export const ENGRAVING_TEMPLATES: EngravingTemplateOption[] = [
+  {
+    id: 'classic-heritage',
+    name: 'Classic Heritage Laurel Template',
+    badge: 'Classic Roman',
+    image: '/src/assets/images/sovereign_classic_heritage_1794823132512.jpg',
+    description: 'Deep-etched Roman capitals on 24k polished gold plate with laurel borders',
+    fontStyle: 'Classic Roman',
+    defaultRecipient: 'VICTORIA ROWING CLUB',
+    defaultCitation: 'Grand Challenge First Place',
+    defaultDate: 'NOVEMBER 2026',
+  },
+  {
+    id: 'victorian-filigree',
+    name: 'Victorian Acanthus Filigree Template',
+    badge: 'Atelier Script',
+    image: '/src/assets/images/sovereign_victorian_filigree_1794823150614.jpg',
+    description: 'Chased acanthus scrollwork with scalloped brass dedication plate in script',
+    fontStyle: 'Atelier Script',
+    defaultRecipient: 'ELEANOR & ARTHUR VANCE',
+    defaultCitation: 'In Commemoration of Distinguished Benefaction',
+    defaultDate: 'AUTUMN 2026',
+  },
+  {
+    id: 'royal-crest',
+    name: 'Royal Heraldic Crest Template',
+    badge: 'Imperial Crest',
+    image: '/src/assets/images/sovereign_heraldic_crest_1794823168101.jpg',
+    description: 'Embossed heraldic trophy emblem on stepped marble base with wide plaque',
+    fontStyle: 'Classic Roman',
+    defaultRecipient: 'ST. CLAIRE REGATTA COMMISSION',
+    defaultCitation: 'Centennial Grand Champion Honors',
+    defaultDate: 'MMXXVI',
+  },
+  {
+    id: 'contemporary-satin',
+    name: 'Contemporary Satin Minimalist Template',
+    badge: 'Brushed Gold',
+    image: '/src/assets/images/sovereign_contemporary_satin_1794823186331.jpg',
+    description: 'Hand-burnished satin gold finish with flush recessed architectural nameplate',
+    fontStyle: 'Classic Roman',
+    defaultRecipient: 'LEADERSHIP EXCELLENCE LAUREATE',
+    defaultCitation: 'For Lasting Civic Achievement & Stewardship',
+    defaultDate: 'EST. 2026',
+  },
+];
+
 interface ProductModalProps {
   product: Product | null;
   initialEngraving: EngravingDetails;
@@ -25,14 +84,24 @@ export function ProductModal({
   const [selectedSize, setSelectedSize] = useState<ProductSize | null>(null);
   const [selectedFinish, setSelectedFinish] = useState<string>('');
   const [quantity, setQuantity] = useState(1);
-  const [engraving, setEngraving] = useState<EngravingDetails>(initialEngraving);
+  const [selectedTemplate, setSelectedTemplate] = useState<EngravingTemplateOption>(
+    ENGRAVING_TEMPLATES[0]
+  );
+  const [activeDisplayImage, setActiveDisplayImage] = useState<string>(
+    product?.image || ENGRAVING_TEMPLATES[0].image
+  );
+  const [includeEngraving, setIncludeEngraving] = useState(true);
+  const [customRecipient, setCustomRecipient] = useState('');
 
   useEffect(() => {
     if (product) {
       setSelectedSize(product.sizes[0]);
       setSelectedFinish(product.finishes[0]);
       setQuantity(1);
-      setEngraving(initialEngraving);
+      setSelectedTemplate(ENGRAVING_TEMPLATES[0]);
+      setActiveDisplayImage(product.image);
+      setIncludeEngraving(true);
+      setCustomRecipient(initialEngraving?.recipient || '');
     }
   }, [product, initialEngraving]);
 
@@ -57,7 +126,16 @@ export function ProductModal({
       size: selectedSize,
       finish: selectedFinish,
       quantity,
-      engraving,
+      engraving: {
+        enabled: includeEngraving,
+        templateId: selectedTemplate.id,
+        templateName: selectedTemplate.name,
+        templateImage: selectedTemplate.image,
+        recipient: customRecipient.trim() || selectedTemplate.defaultRecipient,
+        citation: selectedTemplate.defaultCitation,
+        dateLine: selectedTemplate.defaultDate,
+        fontStyle: selectedTemplate.fontStyle,
+      },
     });
   };
 
@@ -89,10 +167,10 @@ export function ProductModal({
             <div>
               <div className="aspect-[4/3] w-full bg-white border border-[#E6DCC5] rounded-md overflow-hidden mb-6">
                 <ResilientImage
-                  src={product.image}
+                  src={activeDisplayImage || product.image}
                   alt={product.imageAlt}
                   title={product.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-300"
                 />
               </div>
 
@@ -223,111 +301,122 @@ export function ProductModal({
                 </div>
               </div>
 
-              {/* Optional Custom Engraving Box */}
+              {/* Curated Engraving Template Designs as Photos */}
               <div className="p-4 sm:p-5 bg-[#FAF8F4] border border-[#E6DCC5] rounded-lg mb-6">
                 <div className="flex items-center justify-between gap-4 mb-3">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-[#1C1917]">
-                      Custom Plaque Engraving
+                      Choose Inscription Design Template
                     </p>
                     <p className="text-xs text-[#645D54]">
-                      Complimentary diamond-drag inscription
+                      Complimentary diamond-drag plate inscription with every piece
                     </p>
                   </div>
                   <label className="inline-flex items-center gap-2 text-xs font-medium text-[#1C1917] cursor-pointer">
                     <input
                       type="checkbox"
-                      checked={engraving.enabled}
-                      onChange={(e) =>
-                        setEngraving((prev) => ({ ...prev, enabled: e.target.checked }))
-                      }
+                      checked={includeEngraving}
+                      onChange={(e) => setIncludeEngraving(e.target.checked)}
                       className="w-4 h-4 accent-[#8E6718] rounded cursor-pointer"
                     />
                     <span>Include Inscription</span>
                   </label>
                 </div>
 
-                {engraving.enabled ? (
-                  <div className="space-y-3 pt-2 border-t border-[#E6DCC5]">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <input
-                        type="text"
-                        maxLength={42}
-                        value={engraving.recipient}
-                        onChange={(e) =>
-                          setEngraving((prev) => ({ ...prev, recipient: e.target.value }))
-                        }
-                        placeholder="Line 1: Honoree or Club Name"
-                        aria-label="Engraving line 1 honoree"
-                        className="w-full px-3 py-2 text-xs bg-white border border-[#E6DCC5] rounded-md text-[#1C1917] focus:outline-none focus:border-[#8E6718]"
-                      />
-                      <input
-                        type="text"
-                        maxLength={32}
-                        value={engraving.dateLine}
-                        onChange={(e) =>
-                          setEngraving((prev) => ({ ...prev, dateLine: e.target.value }))
-                        }
-                        placeholder="Line 3: Year or Date (e.g. 2026)"
-                        aria-label="Engraving line 3 year or date"
-                        className="w-full px-3 py-2 text-xs bg-white border border-[#E6DCC5] rounded-md text-[#1C1917] focus:outline-none focus:border-[#8E6718]"
-                      />
-                    </div>
-                    <input
-                      type="text"
-                      maxLength={54}
-                      value={engraving.citation}
-                      onChange={(e) =>
-                        setEngraving((prev) => ({ ...prev, citation: e.target.value }))
-                      }
-                      placeholder="Line 2: Award Citation or Milestone"
-                      aria-label="Engraving line 2 citation"
-                      className="w-full px-3 py-2 text-xs bg-white border border-[#E6DCC5] rounded-md text-[#1C1917] focus:outline-none focus:border-[#8E6718]"
-                    />
-                    <div className="flex items-center justify-between gap-2 pt-1">
-                      <span className="text-[11px] text-[#645D54]">Lettering Style:</span>
-                      <div className="flex items-center gap-1.5">
-                        {(['Classic Roman', 'Atelier Script'] as EngravingFont[]).map((font) => (
+                {includeEngraving ? (
+                  <div className="space-y-4 pt-3 border-t border-[#E6DCC5]">
+                    {/* Visual Photo Cards Grid of 4 Distinct Templates */}
+                    <div className="grid grid-cols-2 gap-3">
+                      {ENGRAVING_TEMPLATES.map((tmpl) => {
+                        const isSelected = selectedTemplate.id === tmpl.id;
+                        return (
                           <button
-                            key={font}
+                            key={tmpl.id}
                             type="button"
-                            onClick={() =>
-                              setEngraving((prev) => ({ ...prev, fontStyle: font }))
-                            }
-                            className={`px-2.5 py-1 text-[11px] font-medium rounded border transition-colors cursor-pointer ${
-                              engraving.fontStyle === font
-                                ? 'bg-[#1C1917] text-white border-[#1C1917]'
-                                : 'bg-white text-[#645D54] border-[#E6DCC5]'
+                            onClick={() => {
+                              setSelectedTemplate(tmpl);
+                              setActiveDisplayImage(tmpl.image);
+                            }}
+                            className={`group text-left p-2.5 rounded-lg border transition-all cursor-pointer relative overflow-hidden flex flex-col justify-between ${
+                              isSelected
+                                ? 'border-[#8E6718] bg-white ring-1 ring-[#8E6718] shadow-sm'
+                                : 'border-[#E6DCC5] bg-white/70 hover:border-[#C9A24D] hover:bg-white'
                             }`}
                           >
-                            {font}
+                            {/* Template Photo Showcase */}
+                            <div className="aspect-[4/3] w-full rounded overflow-hidden mb-2 bg-[#EFEAE0] relative border border-[#E6DCC5]">
+                              <img
+                                src={tmpl.image}
+                                alt={tmpl.name}
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              />
+                              {isSelected && (
+                                <span className="absolute top-1.5 right-1.5 bg-[#8E6718] text-white p-1 rounded-full shadow-xs">
+                                  <Check className="w-3 h-3" />
+                                </span>
+                              )}
+                              <span className="absolute bottom-1.5 left-1.5 bg-[#1C1917]/85 text-[#DFC684] text-[10px] font-medium px-2 py-0.5 rounded tracking-wide backdrop-blur-xs">
+                                {tmpl.badge}
+                              </span>
+                            </div>
+
+                            <p className="text-xs font-semibold text-[#1C1917] line-clamp-1 leading-snug">
+                              {tmpl.name}
+                            </p>
+                            <p className="text-[11px] text-[#645D54] line-clamp-1 mt-0.5">
+                              {tmpl.description}
+                            </p>
+
+                            {/* Mini Gold Inscription Plaque Preview */}
+                            <div className="mt-2.5 gold-foil-surface px-2.5 py-2 rounded-[2px] border border-[#A87E2A]/70 text-center shadow-inner">
+                              <p
+                                className={`text-[10px] text-[#2B1F06] truncate ${
+                                  tmpl.fontStyle === 'Atelier Script'
+                                    ? 'font-display italic font-semibold'
+                                    : 'font-display uppercase tracking-wider font-semibold'
+                                }`}
+                              >
+                                {isSelected && customRecipient.trim()
+                                  ? customRecipient.trim()
+                                  : tmpl.defaultRecipient}
+                              </p>
+                              <p className="text-[9px] text-[#3D2C0A] truncate mt-0.5">
+                                {tmpl.defaultCitation}
+                              </p>
+                              <p className="text-[8px] tracking-[0.16em] uppercase text-[#4B360C] mt-0.5 tabular-nums">
+                                {tmpl.defaultDate}
+                              </p>
+                            </div>
                           </button>
-                        ))}
-                      </div>
+                        );
+                      })}
                     </div>
 
-                    {/* Mini Live Gold Plate Proof */}
-                    <div className="gold-foil-surface px-4 py-3 rounded-sm border border-[#A87E2A] text-center">
-                      <p
-                        className={`text-xs text-[#2B1F06] truncate ${
-                          engraving.fontStyle === 'Atelier Script'
-                            ? 'font-display italic font-semibold text-sm'
-                            : 'font-display font-semibold uppercase tracking-[0.1em]'
-                        }`}
-                      >
-                        {engraving.recipient || 'HONOREE NAME'}
-                      </p>
-                      <p className="text-[11px] text-[#3D2C0A] truncate mt-0.5">
-                        {engraving.citation || 'Citation Line'}
-                      </p>
-                      <p className="text-[10px] tracking-[0.18em] uppercase text-[#4B360C] mt-0.5 tabular-nums">
-                        {engraving.dateLine || 'MMXXVI'}
-                      </p>
+                    {/* Single Custom Inscription Line Input */}
+                    <div className="pt-2">
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <label
+                          htmlFor="modal-custom-recipient"
+                          className="text-xs font-medium text-[#1C1917]"
+                        >
+                          Custom Inscription Name or Title (Optional)
+                        </label>
+                        <span className="text-[11px] text-[#8E6718]">Complimentary</span>
+                      </div>
+                      <input
+                        id="modal-custom-recipient"
+                        type="text"
+                        maxLength={50}
+                        value={customRecipient}
+                        onChange={(e) => setCustomRecipient(e.target.value)}
+                        placeholder={`e.g. Inscribe with ${selectedTemplate.name}...`}
+                        className="w-full px-3 py-2 text-xs bg-white border border-[#E6DCC5] rounded-md text-[#1C1917] placeholder:text-[#8A8177] focus:outline-none focus:border-[#8E6718] transition-colors"
+                      />
                     </div>
                   </div>
                 ) : (
-                  <p className="text-xs text-[#645D54]">
-                    Piece will be supplied with a blank brushed gold presentation plate.
+                  <p className="text-xs text-[#645D54] pt-2 border-t border-[#E6DCC5]">
+                    Piece will be supplied with a blank satin-brushed gold presentation plate.
                   </p>
                 )}
               </div>

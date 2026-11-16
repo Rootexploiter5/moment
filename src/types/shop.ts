@@ -37,6 +37,9 @@ export interface Product {
 
 export interface EngravingDetails {
   enabled: boolean;
+  templateId?: string;
+  templateName?: string;
+  templateImage?: string;
   recipient: string;
   citation: string;
   dateLine: string;
