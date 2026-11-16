@@ -23,6 +23,7 @@ export default defineConfig(() => {
           const srcAssets = path.resolve(__dirname, 'src/assets');
           const distAssets = path.resolve(distDir, 'src/assets');
           if (fs.existsSync(distDir) && fs.existsSync(srcAssets)) {
+            fs.mkdirSync(distAssets, {recursive: true});
             fs.cpSync(srcAssets, distAssets, {recursive: true, force: true});
           }
         },
