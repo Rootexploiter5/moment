@@ -270,7 +270,7 @@ export function ProductModal({
 
               <div className="flex items-baseline gap-3 mb-4">
                 <span className="text-2xl font-semibold text-[#1C1917] tabular-nums">
-                  ${unitPrice.toLocaleString()}
+                  ₹{unitPrice.toLocaleString('en-IN')}
                 </span>
                 <span className="text-xs text-[#645D54]">
                   Includes complimentary custom plate engraving
@@ -305,7 +305,7 @@ export function ProductModal({
                         <span className={`block text-[11px] tabular-nums mt-0.5 ${active ? 'text-[#DFC684]' : 'text-[#645D54]'}`}>
                           {size.priceDelta === 0
                             ? 'Standard'
-                            : `+$${size.priceDelta}`}
+                            : `+₹${size.priceDelta.toLocaleString('en-IN')}`}
                         </span>
                       </button>
                     );
@@ -369,7 +369,7 @@ export function ProductModal({
                 className="flex-1 h-11 px-6 text-sm font-semibold text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] shadow-md hover:shadow-lg rounded-md transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-2"
               >
                 <span>Add to Shopping Bag</span>
-                <span className="text-[#DFC684] tabular-nums font-bold">· ${lineTotal.toLocaleString()}</span>
+                <span className="text-[#DFC684] tabular-nums font-bold">· ₹{lineTotal.toLocaleString('en-IN')}</span>
               </button>
             </div>
           </form>

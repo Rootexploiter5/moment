@@ -130,7 +130,7 @@ export function TrackOrderModal({
                   </div>
                 </div>
                 <span className="text-sm font-bold text-[#1A1A1A] tabular-nums">
-                  ${selectedOrder.total.toLocaleString()}
+                  ₹{selectedOrder.total.toLocaleString('en-IN')}
                 </span>
               </div>
 
@@ -166,7 +166,7 @@ export function TrackOrderModal({
                         )}
                       </div>
                       <span className="text-sm font-semibold text-[#1A1A1A] tabular-nums">
-                        ${(item.unitPrice * item.quantity).toLocaleString()}
+                        ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
                       </span>
                     </div>
                   ))}

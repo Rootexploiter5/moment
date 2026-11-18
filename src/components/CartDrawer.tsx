@@ -173,7 +173,7 @@ export function CartDrawer({
                       )}
                     </div>
                     <span className="font-semibold text-[#1C1917] tabular-nums shrink-0">
-                      ${(item.unitPrice * item.quantity).toLocaleString()}
+                      ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
                     </span>
                   </div>
                 ))}
@@ -183,12 +183,12 @@ export function CartDrawer({
                     <span className="tabular-nums">
                       {confirmedOrder.shippingFee === 0
                         ? 'Complimentary'
-                        : `$${confirmedOrder.shippingFee}`}
+                        : `₹${confirmedOrder.shippingFee.toLocaleString('en-IN')}`}
                     </span>
                   </div>
                   <div className="flex justify-between font-semibold text-[#1C1917] text-base pt-1 border-t border-[#E6DCC5]">
                     <span>Total</span>
-                    <span className="tabular-nums">${confirmedOrder.total.toLocaleString()}</span>
+                    <span className="tabular-nums">₹{confirmedOrder.total.toLocaleString('en-IN')}</span>
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export function CartDrawer({
                 <p className="text-xs font-medium text-[#1C1917] mb-2">
                   {qualifiesFreeShipping
                     ? 'Your order qualifies for complimentary insured white-glove delivery.'
-                    : `Add $${remainingForFreeShipping.toLocaleString()} more for complimentary insured white-glove delivery.`}
+                    : `Add ₹${remainingForFreeShipping.toLocaleString('en-IN')} more for complimentary insured white-glove delivery.`}
                 </p>
                 <div className="w-full h-1.5 bg-[#E6DCC5] rounded-full overflow-hidden">
                   <div
@@ -324,7 +324,7 @@ export function CartDrawer({
                         </div>
 
                         <span className="text-sm font-semibold text-[#1C1917] tabular-nums">
-                          ${(item.unitPrice * item.quantity).toLocaleString()}
+                          ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
                         </span>
                       </div>
                     </div>
@@ -457,7 +457,7 @@ export function CartDrawer({
             <div className="space-y-1.5 text-sm">
               <div className="flex justify-between text-[#645D54]">
                 <span>Subtotal</span>
-                <span className="tabular-nums">${subtotal.toLocaleString()}</span>
+                <span className="tabular-nums">₹{subtotal.toLocaleString('en-IN')}</span>
               </div>
               <div className="flex justify-between text-[#645D54]">
                 <span>Engraving &amp; Presentation Box</span>
@@ -466,12 +466,12 @@ export function CartDrawer({
               <div className="flex justify-between text-[#645D54]">
                 <span>Insured Delivery</span>
                 <span className="tabular-nums">
-                  {shippingFee === 0 ? 'Complimentary' : `$${shippingFee}`}
+                  {shippingFee === 0 ? 'Complimentary' : `₹${shippingFee.toLocaleString('en-IN')}`}
                 </span>
               </div>
               <div className="flex justify-between text-base font-semibold text-[#1C1917] pt-2 border-t border-[#E6DCC5]">
                 <span>Total</span>
-                <span className="tabular-nums">${total.toLocaleString()}</span>
+                <span className="tabular-nums">₹{total.toLocaleString('en-IN')}</span>
               </div>
             </div>
 
@@ -490,7 +490,7 @@ export function CartDrawer({
                 className="w-full py-3 px-6 text-sm font-semibold text-white bg-[#0E0D0C] hover:bg-[#8E6718] border border-[#2B261F] shadow-sm rounded-md transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <span>Confirm Commission</span>
-                <span className="text-[#DFC684] tabular-nums font-bold">· ${total.toLocaleString()}</span>
+                <span className="text-[#DFC684] tabular-nums font-bold">· ₹{total.toLocaleString('en-IN')}</span>
               </button>
             )}
           </div>

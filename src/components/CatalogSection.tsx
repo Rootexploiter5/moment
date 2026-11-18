@@ -196,7 +196,7 @@ export function CatalogSection({
                         Starting at
                       </span>
                       <span className="text-base font-semibold text-[#1C1917] tabular-nums">
-                        ${product.basePrice.toLocaleString()}
+                        ₹{product.basePrice.toLocaleString('en-IN')}
                       </span>
                     </div>
 
