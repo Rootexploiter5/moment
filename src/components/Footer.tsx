@@ -14,15 +14,18 @@ export function Footer({ onOpenTrackOrder, onOpenCart }: FooterProps) {
           <div className="md:col-span-5">
             <div className="flex items-center gap-2 mb-2">
               <span className="font-display text-2xl font-bold text-white tracking-tight">
-                Today Mementos
+                Today Mementos &amp; Trophies
               </span>
               <span className="px-2 py-0.5 text-[10px] uppercase font-bold tracking-widest bg-[#D4AF37] text-[#1A1A1A] rounded">
                 4.9 ★ Rated
               </span>
             </div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37] mb-2">
+              &ldquo;You Choose, We Create&rdquo;
+            </p>
             <p className="text-sm text-[#A69C8E] leading-relaxed max-w-sm mb-4">
-              Kothamangalam&apos;s leading manufacturer and designer of custom trophies, sports cups,
-              wood plaques, crystal obelisks, and ceremonial medals across Kerala.
+              Kothamangalam&apos;s leading manufacturer of custom wooden mementos, Kathakali trophies,
+              retirement awards, and ceremonial plaques across all Kerala districts.
             </p>
             <div className="flex items-center gap-1.5 text-xs text-[#D4AF37]">
               <div className="flex text-[#D4AF37]">
@@ -77,7 +80,7 @@ export function Footer({ onOpenTrackOrder, onOpenCart }: FooterProps) {
             </div>
             <div className="flex items-center gap-2 text-xs text-[#A69C8E]">
               <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
-              <span>Direct Atelier Desk / WhatsApp: Available on Request</span>
+              <span>Direct Call / WhatsApp: +91 98954 35663</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-[#A69C8E]">
               <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />

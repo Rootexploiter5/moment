@@ -14,6 +14,10 @@ export function Hero({ onExploreCollection }: HeroProps) {
           {/* Editorial Copy Column */}
           <div className="lg:col-span-6 flex flex-col justify-between py-2 lg:py-4">
             <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8E6718] mb-3">
+                &ldquo;You Choose, We Create&rdquo; · Kothamangalam, Kerala
+              </p>
+
               <h1 className="font-display text-[clamp(2.35rem,4vw,3.75rem)] leading-[1.08] font-bold text-[#1A1A1A] text-balance mb-6">
                 Enduring Honors Cast in Wood, Metal &amp; Glass
               </h1>
@@ -94,8 +98,8 @@ export function Hero({ onExploreCollection }: HeroProps) {
               <div className="relative h-full min-h-[300px] aspect-[4/3] lg:aspect-auto overflow-hidden rounded-sm bg-[#1A1A1A]">
                 <ResilientImage
                   src={HERO_IMAGE}
-                  alt="Handcrafted championship trophy cup from Today Mementos Kothamangalam"
-                  title="Grand Victory Winged Cup"
+                  alt="Kathakali Heritage Trophy & Plaque from Today Mementos Kothamangalam"
+                  title="Kathakali Heritage Trophy & Plaque"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent p-5 sm:p-6 border-t border-white/10">
@@ -103,10 +107,10 @@ export function Hero({ onExploreCollection }: HeroProps) {
                     Today Mementos Kothamangalam
                   </span>
                   <p className="font-display text-xl sm:text-2xl font-bold text-white">
-                    Grand Victory Winged Cup
+                    Kathakali Heritage Trophy &amp; Plaque
                   </p>
                   <p className="text-xs text-[#E5DDD0]/85 mt-0.5">
-                    Solid Stone Plinth · Polished Metallic Gold Finish · Complimentary Plate Engraving
+                    Solid Kerala Teak Plinth · Polished Brass Inlay · Gloss Acrylic Inscription Monolith
                   </p>
                 </div>
               </div>

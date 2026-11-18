@@ -16,10 +16,9 @@ interface CatalogSectionProps {
 
 const CATEGORIES: CategoryFilter[] = [
   'All Pieces',
-  'Championship Cups',
-  'Crystal & Glass',
-  'Commemorative Plaques',
-  'Heritage Medals',
+  'Kerala Heritage Awards',
+  'Traditional Wooden Mementos',
+  'Institutional & Retirement',
 ];
 
 export function CatalogSection({
@@ -69,11 +68,10 @@ export function CatalogSection({
                   role="tab"
                   aria-selected={active}
                   onClick={() => onSelectCategory(category)}
-                  className={`px-3.5 py-2 text-xs font-medium rounded-md transition-colors duration-150 whitespace-nowrap shrink-0 cursor-pointer ${
-                    active
+                  className={`px-3.5 py-2 text-xs font-medium rounded-md transition-colors duration-150 whitespace-nowrap shrink-0 cursor-pointer ${active
                       ? 'bg-[#0E0D0C] text-white shadow-sm border border-[#2B261F]'
                       : 'text-[#645D54] hover:text-[#1C1917] hover:bg-white/70'
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>

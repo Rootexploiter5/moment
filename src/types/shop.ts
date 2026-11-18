@@ -1,8 +1,7 @@
 export type ProductCategory =
-  | 'Championship Cups'
-  | 'Crystal & Glass'
-  | 'Commemorative Plaques'
-  | 'Heritage Medals';
+  | 'Kerala Heritage Awards'
+  | 'Traditional Wooden Mementos'
+  | 'Institutional & Retirement';
 
 export type CategoryFilter = 'All Pieces' | ProductCategory;
 
